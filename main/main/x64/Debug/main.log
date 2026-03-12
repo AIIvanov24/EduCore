@@ -1,4 +1,6 @@
 ﻿  main.cpp
+C:\Users\ivanl\Desktop\html\EduCore\main\main\main.cpp(24,27): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\ivanl\Desktop\html\EduCore\main\main\main.cpp(26,57): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
   main.vcxproj -> C:\Users\ivanl\Desktop\html\EduCore\main\x64\Debug\main.exe
   'pwsh.exe' is not recognized as an internal or external command,
   operable program or batch file.
