@@ -15,8 +15,14 @@ int main() {
 	float mainSectionHeight = GetScreenHeight() - separationLineY - spacing * 2; // Height for the main section
 	float mainSectionY = separationLineY + spacing; // Y position for the main section
 
-    int textWidth = MeasureText("Please choose a subject", 30);
-    float centerX = 40 + (1320 / 2.0f) - (textWidth / 2.0f);
+    int subjectTextWidth = MeasureText("Please choose a subject", 30);
+    float centerX = 40 + (1320 / 2.0f) - (subjectTextWidth / 2.0f);
+
+	Rectangle backButtonRect = { 20, 10, 120 , 50 };
+	Rectangle subMathSection = { 74 , mainSectionY + 5 * spacing, 390 , 290 };
+	Rectangle subMathSectionHw = { subMathSection.x + 390 + spacing * 2, subMathSection.y, subMathSection.width, subMathSection.height };
+	Rectangle subMathSectionTest = { subMathSection.x + 390 * 2 + spacing * 4, subMathSection.y, subMathSection.width, subMathSection.height };
+    Rectangle subMathSectionLabel = { subMathSection.x - 2, subMathSection.y - 1, subMathSection.width + 3, 40.0f };
 
     Rectangle mathSection = { 80 , mainSectionY + 5 * spacing, 1320 - 80 , 200 };
     float labelHeight = 40.0f; // Колко дебел да е цветният "лейбъл"
@@ -37,39 +43,72 @@ int main() {
                 }
             } 
             break;
+
+            case mathPage: {
+                Vector2 mousePoint = GetMousePosition();
+                if (CheckCollisionPointRec(mousePoint, backButtonRect)) {
+                    if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
+                        currentPage = homePage; // chnge the window to the home page
+                    }
+                }
+            }
+            break;
         }
+
         BeginDrawing();
         ClearBackground(mainBackground);
 
         switch (currentPage) {
-            case homePage:
-                DrawText("Welcome to ", 20, 60, 70, eduBlue);
-                DrawText("EduCore Online School !", 20, 130, 70, eduOrange);
-                DrawTexture(texture, 1150, 10, WHITE);
-                DrawRectangle(40, separationLineY, GetScreenWidth() - 80, 2, eduBlue);
-                DrawRectangleRounded({ 40, separationLineY + 30, 1320 , mainSectionHeight }, 0.1f, 10, subSectionsBg);
-                DrawText(" Please choose a subject", centerX, mainSectionY + 30, 30, RAYWHITE);
+        case homePage:
+            DrawText("Welcome to ", 20, 70, 70, eduBlue);
+            DrawText("EduCore Online School !", 20, 140, 70, eduOrange);
+            DrawTexture(texture, 1150, 10, WHITE);
+            DrawRectangle(40, separationLineY, GetScreenWidth() - 80, 2, eduBlue);
+            DrawRectangleRounded({ 40, separationLineY + 30, 1320 , mainSectionHeight }, 0.1f, 10, subSectionsBg);
+            DrawText(" Please choose a subject", centerX, mainSectionY + 30, 30, RAYWHITE);
 
-                DrawRectangleRounded(mathSection, 0.2f, 10, mainBackground);
-                // 2. draw a lebal on the top of the maths section
-                DrawRectangleRounded(labelRect, 1.0f, 10, sectionOutlines); // Използваме твоя цвят
-                // 3 draw the bottom part of the label to create a separation between the label and the main section
-                DrawRectangle(labelRect.x, labelRect.y + labelHeight / 2, labelRect.width, labelHeight / 2, sectionOutlines);
-                // 4.Adds the outline for the maths section
-                DrawRectangleRoundedLines(mathSection, 0.2f, 10, sectionOutlines);
-                // 5. Heading and content for the maths section
-                DrawText(" MATHS    [ + - * /]", mathSection.x + 20, mathSection.y + 10, 25, RAYWHITE);
-                DrawText("Explore the world of numbers and equations with our comprehensive math courses.", mathSection.x + 20, mathSection.y + 50, 20, RAYWHITE);
-                DrawText("From basic arithmetic to advanced calculus, our curriculum is designed to build a strong foundation in mathematics.", mathSection.x + 20, mathSection.y + 55 + spacing, 20, RAYWHITE);
-                DrawText("Content: ", mathSection.x + 20, mathSection.y + 60 + spacing * 3, 20, eduTurquoise);
-                DrawText("Exercises for HW and practice / Materials & Lessons / Test", mathSection.x + 20, mathSection.y + 70 + spacing * 4, 20, GRAY);
+            DrawRectangleRounded(mathSection, 0.2f, 10, mainBackground);
+            // 2. draw a lebal on the top of the maths section
+            DrawRectangleRounded(labelRect, 1.0f, 10, sectionOutlines); // Използваме твоя цвят
+            // 3 draw the bottom part of the label to create a separation between the label and the main section
+            DrawRectangle(labelRect.x, labelRect.y + labelHeight / 2, labelRect.width, labelHeight / 2, sectionOutlines);
+            // 4.Adds the outline for the maths section
+            DrawRectangleRoundedLines(mathSection, 0.2f, 10, sectionOutlines);
+            // 5. Heading and content for the maths section
+            DrawText(" MATHS    [ + - * /]", mathSection.x + 20, mathSection.y + 10, 25, RAYWHITE);
+            DrawText("Explore the world of numbers and equations with our comprehensive math courses.", mathSection.x + 20, mathSection.y + 50, 20, RAYWHITE);
+            DrawText("From basic arithmetic to advanced calculus, our curriculum is designed to build a strong foundation in mathematics.", mathSection.x + 20, mathSection.y + 55 + spacing, 20, RAYWHITE);
+            DrawText("Content: ", mathSection.x + 20, mathSection.y + 60 + spacing * 3, 20, eduTurquoise);
+            DrawText("Materials & Lessons / Exercises for HW and practice / Tests", mathSection.x + 20, mathSection.y + 70 + spacing * 4, 20, GRAY);
+            
+            DrawText("Discover more subjects with EduCorePlus", 90, mainSectionY + 10 * spacing + 200, 25, eduTurquoise);
+            break;
 
-                DrawText("Discover more subjects with EduCorePlus", 90, mainSectionY + 10 * spacing + 200, 25, eduTurquoise);
-                break;
+        case mathPage:
+            DrawText("Welcome to ", 20, 70, 70, eduBlue);
+            DrawText("Maths", 20, 140, 70, eduTurquoise);
+            DrawRectangleRounded(backButtonRect, 0.3f, 10, subSectionsBg);
+            DrawRectangleRoundedLines(backButtonRect, 0.3f, 10, sectionOutlines);
+            DrawTexture(texture, 1150, 10, WHITE);
+            DrawText(" << Back", backButtonRect.x + 6, backButtonRect.y + 13, 25, RAYWHITE);
+            DrawRectangle(40, separationLineY, GetScreenWidth() - 80, 2, eduBlue);
+            DrawRectangleRounded({ 40, separationLineY + 30, 1320 , mainSectionHeight }, 0.1f, 10, subSectionsBg);
+            DrawRectangleRounded(subMathSection, 0.2f, 10, mainBackground);
+            DrawRectangleRounded(subMathSectionLabel, 1.0f, 10, eduTurquoise);
+            DrawRectangle(subMathSectionLabel.x, subMathSectionLabel.y + labelHeight / 2, subMathSectionLabel.width, labelHeight, eduTurquoise);
+            DrawText("Materials & Lessons", subMathSection.x + spacing, subMathSection.y + spacing - 5, 30, RAYWHITE);
 
-            case mathPage:
-                DrawText("WELCOME TO MATH QUIZ!", 100, 100, 30, eduTurquoise);
-                DrawText("Press Backspace to return", 100, 200, 20, GRAY);
+            DrawRectangleRounded(subMathSectionHw, 0.2f, 10, mainBackground);
+            DrawRectangleRounded({ subMathSectionHw.x, subMathSectionHw.y, subMathSectionHw.width, labelHeight }, 1.0f, 10, eduTurquoise);
+            DrawRectangle(subMathSectionLabel.x + 391 + spacing*2, subMathSectionLabel.y + labelHeight / 2 , subMathSectionLabel.width - 1, labelHeight , eduTurquoise);
+            DrawText("HW and practice", subMathSectionHw.x + spacing, subMathSectionHw.y + spacing - 5, 30, RAYWHITE);
+
+            DrawRectangleRounded(subMathSectionTest, 0.2f, 10, mainBackground);
+            DrawRectangleRounded({ subMathSectionTest.x, subMathSectionTest.y, subMathSectionTest.width, labelHeight}, 1.0f, 10, eduTurquoise);
+            DrawRectangle(subMathSectionLabel.x + 391*2 + spacing * 4, subMathSectionLabel.y + labelHeight / 2, subMathSectionLabel.width - 2, labelHeight, eduTurquoise);
+            DrawText("Tests", subMathSectionTest.x + spacing, subMathSectionTest.y + spacing - 5, 30, RAYWHITE);
+
+
                 break;
         }
 
