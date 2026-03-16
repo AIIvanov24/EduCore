@@ -25,7 +25,7 @@ int main() {
     Rectangle subMathSectionLabel = { subMathSection.x - 2, subMathSection.y - 1, subMathSection.width + 3, 40.0f };
 
     Rectangle mathSection = { 80 , mainSectionY + 5 * spacing, 1320 - 80 , 200 };
-    float labelHeight = 40.0f; // Колко дебел да е цветният "лейбъл"
+    float labelHeight = 40.0f; 
     Rectangle labelRect = { mathSection.x - 2, mathSection.y - 1, mathSection.width + 3, labelHeight };
 
     Image image = LoadImage("eduCoreLogo.png");
@@ -48,11 +48,55 @@ int main() {
                 Vector2 mousePoint = GetMousePosition();
                 if (CheckCollisionPointRec(mousePoint, backButtonRect)) {
                     if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
-                        currentPage = homePage; // chnge the window to the home page
+						currentPage = homePage; // chnge the window to the home page
+                    }
+                }
+                if (CheckCollisionPointRec(mousePoint, subMathSectionTest)) {
+                    if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
+						currentPage = test; // chnge the window to the math test page
+                    }
+                }
+                if (CheckCollisionPointRec(mousePoint, subMathSection)) {
+                    if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
+						currentPage = materials; // chnge the window to the math materials and lessons page
+                    }
+                }
+                if (CheckCollisionPointRec(mousePoint, subMathSectionHw)) {
+                    if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
+                        currentPage = exrecices; // chnge the window to the exrecices page
+                    }
+                }
+            } 
+            break;
+
+            case test: {
+                Vector2 mousePoint = GetMousePosition();
+                if (CheckCollisionPointRec(mousePoint, backButtonRect)) {
+                    if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
+                        currentPage = mathPage; // chnge the window to the math page
                     }
                 }
             }
             break;
+
+            case materials: {
+                Vector2 mousePoint = GetMousePosition();
+                if (CheckCollisionPointRec(mousePoint, backButtonRect)) {
+                    if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
+                        currentPage = mathPage; // chnge the window to the math page
+                    }
+                }
+			}
+            
+            case exrecices: {
+                Vector2 mousePoint = GetMousePosition();
+                if (CheckCollisionPointRec(mousePoint, backButtonRect)) {
+                    if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
+                        currentPage = mathPage; // chnge the window to the math page
+                    }
+                }
+			}
+
         }
 
         BeginDrawing();
@@ -97,19 +141,57 @@ int main() {
             DrawRectangleRounded(subMathSectionLabel, 1.0f, 10, eduTurquoise);
             DrawRectangle(subMathSectionLabel.x, subMathSectionLabel.y + labelHeight / 2, subMathSectionLabel.width, labelHeight, eduTurquoise);
             DrawText("Materials & Lessons", subMathSection.x + spacing, subMathSection.y + spacing - 5, 30, RAYWHITE);
+			DrawRectangle(subMathSectionLabel.x + 42, subMathSectionLabel.y + labelHeight / 2 + 200, subMathSectionLabel.width - 88, labelHeight, eduTurquoise);
+            DrawText("Choose this", subMathSection.x + spacing + 70, subMathSection.y + spacing + 205, 30, RAYWHITE);
 
             DrawRectangleRounded(subMathSectionHw, 0.2f, 10, mainBackground);
             DrawRectangleRounded({ subMathSectionHw.x, subMathSectionHw.y, subMathSectionHw.width, labelHeight }, 1.0f, 10, eduTurquoise);
             DrawRectangle(subMathSectionLabel.x + 391 + spacing*2, subMathSectionLabel.y + labelHeight / 2 , subMathSectionLabel.width - 1, labelHeight , eduTurquoise);
             DrawText("HW and practice", subMathSectionHw.x + spacing, subMathSectionHw.y + spacing - 5, 30, RAYWHITE);
+            DrawRectangle(subMathSectionLabel.x + 472, subMathSectionLabel.y + labelHeight / 2 + 200, subMathSectionLabel.width - 88, labelHeight, eduTurquoise);
+            DrawText("Choose this", subMathSectionHw.x + spacing + 70, subMathSectionHw.y + spacing + 205, 30, RAYWHITE);
+
 
             DrawRectangleRounded(subMathSectionTest, 0.2f, 10, mainBackground);
             DrawRectangleRounded({ subMathSectionTest.x, subMathSectionTest.y, subMathSectionTest.width, labelHeight}, 1.0f, 10, eduTurquoise);
             DrawRectangle(subMathSectionLabel.x + 391*2 + spacing * 4, subMathSectionLabel.y + labelHeight / 2, subMathSectionLabel.width - 2, labelHeight, eduTurquoise);
             DrawText("Tests", subMathSectionTest.x + spacing, subMathSectionTest.y + spacing - 5, 30, RAYWHITE);
-
+            DrawRectangle(subMathSectionLabel.x + 902, subMathSectionLabel.y + labelHeight / 2 + 200, subMathSectionLabel.width - 88, labelHeight, eduTurquoise);
+            DrawText("Choose this", subMathSectionTest.x + spacing + 70, subMathSectionTest.y + spacing + 205, 30, RAYWHITE);
 
                 break;
+
+        case test:
+            DrawText("Welcome to ", 20, 70, 70, eduBlue);
+            DrawText("Maths Test", 20, 140, 70, eduTurquoise);
+            DrawRectangleRounded(backButtonRect, 0.3f, 10, subSectionsBg);
+            DrawRectangleRoundedLines(backButtonRect, 0.3f, 10, sectionOutlines);
+            DrawTexture(texture, 1150, 10, WHITE);
+            DrawText(" << Back", backButtonRect.x + 6, backButtonRect.y + 13, 25, RAYWHITE);
+            DrawRectangleRounded({ 40, separationLineY + 30, 1320 , mainSectionHeight }, 0.1f, 10, subSectionsBg);
+            DrawRectangle(40, separationLineY, GetScreenWidth() - 80, 2, eduBlue);
+			break;
+
+        case materials:
+            DrawText("Welcome to ", 20, 70, 70, eduBlue);
+            DrawText("Maths Materials & Lessons", 20, 140, 70, eduTurquoise);
+            DrawRectangleRounded(backButtonRect, 0.3f, 10, subSectionsBg);
+            DrawRectangleRoundedLines(backButtonRect, 0.3f, 10, sectionOutlines);
+            DrawTexture(texture, 1150, 10, WHITE);
+            DrawText(" << Back", backButtonRect.x + 6, backButtonRect.y + 13, 25, RAYWHITE);
+            DrawRectangleRounded({ 40, separationLineY + 30, 1320 , mainSectionHeight }, 0.1f, 10, subSectionsBg);
+			DrawRectangle(40, separationLineY, GetScreenWidth() - 80, 2, eduBlue);
+			break;
+
+        case exrecices:
+            DrawText("Welcome to ", 20, 70, 70, eduBlue);
+            DrawText("Maths Exercises", 20, 140, 70, eduTurquoise);
+            DrawRectangleRounded(backButtonRect, 0.3f, 10, subSectionsBg);
+            DrawRectangleRoundedLines(backButtonRect, 0.3f, 10, sectionOutlines);
+            DrawTexture(texture, 1150, 10, WHITE);
+            DrawText(" << Back", backButtonRect.x + 6, backButtonRect.y + 13, 25, RAYWHITE);
+			DrawRectangleRounded({ 40, separationLineY + 30, 1320 , mainSectionHeight }, 0.1f, 10, subSectionsBg);
+			break;
         }
 
         EndDrawing();
