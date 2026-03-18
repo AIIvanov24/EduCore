@@ -3,7 +3,7 @@
 int main() {
     InitWindow(1400, 800, "EduCore Education");
     SetTargetFPS(60);
-    enum appState { homePage, mathPage, exercises, test, materials, resursesTab1, resursesTab2, resursesTab3, resursesTab4, resursesTab5, };
+    enum appState { homePage, mathPage, exercises, test, materials, resursesTab1, resursesTab2, resursesTab3, resursesTab4, resursesTab5, exPractice };
     appState currentPage = homePage;
     Color eduBlue = { 0, 160, 233, 255 };   // RGB values for EduCore Blue
     Color eduOrange = { 252, 176, 33, 255 }; // RGB values for EduCore Orange
@@ -25,11 +25,13 @@ int main() {
     Rectangle subMathSectionTest = { subMathSection.x + 390.0f * 2.0f + spacing * 4.0f, subMathSection.y, subMathSection.width, subMathSection.height };
     Rectangle subMathSectionLabel = { subMathSection.x - 2.0f, subMathSection.y - 1.0f, subMathSection.width + 3.0f, 40.0f };
     Rectangle mathSection = { 80.0f , mainSectionY + 5.0f * spacing, 1320.0f - 80.0f , 200.0f };
-	Rectangle resusrsesP1 = { 480.0f, 160.0f, 50.0f , 45.0f };
-	Rectangle resusrsesP2 = { 540.0f, 160.0f, 50.0f , 45.0f };
-	Rectangle resusrsesP3 = { 600.0f, 160.0f, 50.0f , 45.0f };
-	Rectangle resusrsesP4 = { 660.0f, 160.0f, 50.0f , 45.0f };
-	Rectangle resusrsesP5 = { 720.0f, 160.0f, 50.0f , 45.0f };
+    Rectangle resusrsesP1 = { 480.0f, 160.0f, 50.0f , 45.0f };
+    Rectangle resusrsesP2 = { 540.0f, 160.0f, 50.0f , 45.0f };
+    Rectangle resusrsesP3 = { 600.0f, 160.0f, 50.0f , 45.0f };
+    Rectangle resusrsesP4 = { 660.0f, 160.0f, 50.0f , 45.0f };
+    Rectangle resusrsesP5 = { 720.0f, 160.0f, 50.0f , 45.0f };
+    Rectangle hwPracticeRect = { 70.0f, 160.0f ,200.0f ,45.0f };
+    Rectangle exPracticeRect = { 280.0f, 160.0f ,200.0f ,45.0f };
 
     float labelHeight = 40.0f;
     Rectangle labelRect = { mathSection.x - 2.0f, mathSection.y - 1.0f, mathSection.width + 3.0f, labelHeight };
@@ -53,7 +55,7 @@ int main() {
                      break;
 
         case mathPage: {
-            
+
             if (CheckCollisionPointRec(mousePoint, backButtonRect)) {
                 if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
                     currentPage = homePage; // change the window to the home page
@@ -78,7 +80,7 @@ int main() {
                      break;
 
         case test: {
-           
+
             if (CheckCollisionPointRec(mousePoint, backButtonRect)) {
                 if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
                     currentPage = mathPage; // change the window to the math page
@@ -88,13 +90,13 @@ int main() {
                  break;
 
         case materials: {
-            
+
             if (CheckCollisionPointRec(mousePoint, backButtonRect)) {
                 if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
                     currentPage = mathPage; // change the window to the math page
                 }
             }
-            
+
             if (CheckCollisionPointRec(mousePoint, resusrsesP1)) {
                 if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
                     currentPage = resursesTab1; // change the window to the math page
@@ -119,10 +121,10 @@ int main() {
                 if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
                     currentPage = resursesTab5; // change the window to the math page
                 }
-            
-                }
+
             }
-            break;
+        }
+                      break;
         case resursesTab1: {
 
             if (CheckCollisionPointRec(mousePoint, backButtonRect)) {
@@ -158,17 +160,35 @@ int main() {
 
             }
         }
-        break;
+                         break;
 
         case  exercises: {
-            
+
             if (CheckCollisionPointRec(mousePoint, backButtonRect)) {
                 if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
                     currentPage = mathPage; // change the window to the math page
                 }
             }
+            if (CheckCollisionPointRec(mousePoint, exPracticeRect)) {
+                if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
+                    currentPage = exPractice; // change the window to the exPractice page
+                }
+            }
         }
-        break;
+                       break;
+
+        case exPractice: {
+            if (CheckCollisionPointRec(mousePoint, backButtonRect)) {
+                if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
+                    currentPage = mathPage; // change the window to the math page
+                }
+            }
+            if (CheckCollisionPointRec(mousePoint, hwPracticeRect)) {
+                if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
+                    currentPage = exercises;
+                }
+            }
+        }break;
         }
 
         bool hoverBack = CheckCollisionPointRec(mousePoint, backButtonRect);
@@ -177,10 +197,14 @@ int main() {
         bool  hoverResursesP3 = CheckCollisionPointRec(mousePoint, resusrsesP3);
         bool  hoverResursesP4 = CheckCollisionPointRec(mousePoint, resusrsesP4);
         bool  hoverResursesP5 = CheckCollisionPointRec(mousePoint, resusrsesP5);
-		bool hoverSubMathText = CheckCollisionPointRec(mousePoint, subMathSection);
+        bool hoverSubMathText = CheckCollisionPointRec(mousePoint, subMathSection);
         bool hoverSubMathTextHw = CheckCollisionPointRec(mousePoint, subMathSectionHw);
         bool hoverSubMathTextTest = CheckCollisionPointRec(mousePoint, subMathSectionTest);
-		Color hoverSubTextColor = hoverSubMathText ? LIGHTGRAY : GRAY;
+        bool hoverHwPracticeRect = CheckCollisionPointRec(mousePoint, hwPracticeRect);
+        bool hoverExPracticeRect = CheckCollisionPointRec(mousePoint, exPracticeRect);
+        Color hwPracticeRectColor = hoverHwPracticeRect && currentPage != exercises ? eduBlue : currentPage == exercises ? eduTurquoise : subSectionsBg;
+        Color exPracticeRectColor = hoverExPracticeRect && currentPage != exPractice ? eduBlue : currentPage == exPractice ? eduTurquoise : subSectionsBg;
+        Color hoverSubTextColor = hoverSubMathText ? LIGHTGRAY : GRAY;
         Color hoverSubTextColorHw = hoverSubMathTextHw ? LIGHTGRAY : GRAY;
         Color hoverSubTextColorTest = hoverSubMathTextTest ? LIGHTGRAY : GRAY;
         Color backBtnColor = hoverBack ? eduBlue : subSectionsBg;
@@ -229,12 +253,12 @@ int main() {
             DrawRectangleRounded(subMathSectionLabel, 1.0f, 10, eduTurquoise);
             DrawRectangle((int)subMathSectionLabel.x, (int)(subMathSectionLabel.y + labelHeight / 2.0f), (int)subMathSectionLabel.width, (int)labelHeight, eduTurquoise);
             DrawText("Materials & Lessons", (int)(subMathSection.x + spacing), (int)(subMathSection.y + spacing - 5.0f), 30, RAYWHITE);
-			DrawText("Access comprehensive study guides", (int)(subMathSection.x + 20.0f), (int)(subMathSection.y + 85.0f), 18, hoverSubTextColor);
+            DrawText("Access comprehensive study guides", (int)(subMathSection.x + 20.0f), (int)(subMathSection.y + 85.0f), 18, hoverSubTextColor);
             DrawText("and step-by-step explanations to master", (int)(subMathSection.x + 20.0f), (int)(subMathSection.y + 110.0f), 18, hoverSubTextColor);
             DrawText("new mathematical concepts.", (int)(subMathSection.x + 20.0f), (int)(subMathSection.y + 135.0f), 18, hoverSubTextColor);
             DrawRectangleRounded({ subMathSectionLabel.x + 42.0f, subMathSectionLabel.y + labelHeight / 2.0f + 200.0f, subMathSectionLabel.width - 88.0f, labelHeight }, 0.3f, 9, eduTurquoise);
             DrawText("View", (int)(subMathSection.x + spacing + 140.0f), (int)(subMathSection.y + spacing + 205.0f), 30, RAYWHITE);
-			// subMath Section HW and practice
+            // subMath Section HW and practice
             DrawRectangleRounded(subMathSectionHw, 0.2f, 10, mainBackground);
             DrawRectangleRounded({ subMathSectionHw.x, subMathSectionHw.y, subMathSectionHw.width, labelHeight }, 1.0f, 10, eduTurquoise);
             DrawRectangle((int)(subMathSectionLabel.x + 391.0f + spacing * 2.0f), (int)(subMathSectionLabel.y + labelHeight / 2.0f), (int)(subMathSectionLabel.width - 1.0f), (int)labelHeight, eduTurquoise);
@@ -244,7 +268,7 @@ int main() {
             DrawText("reinforce what you've learned in class.", (int)(subMathSectionHw.x + 20.0f), (int)(subMathSectionHw.y + 135.0f), 18, hoverSubTextColorHw);
             DrawRectangleRounded({ subMathSectionLabel.x + 472.0f, subMathSectionLabel.y + labelHeight / 2.0f + 200.0f, subMathSectionLabel.width - 88.0f, labelHeight }, 0.3f, 9, eduTurquoise);
             DrawText("Practise", (int)(subMathSectionHw.x + spacing + 110.0f), (int)(subMathSectionHw.y + spacing + 205.0f), 30, RAYWHITE);
-			//  subMath Section Tests
+            //  subMath Section Tests
             DrawRectangleRounded(subMathSectionTest, 0.2f, 10, mainBackground);
             DrawRectangleRounded({ subMathSectionTest.x, subMathSectionTest.y, subMathSectionTest.width, labelHeight }, 1.0f, 10, eduTurquoise);
             DrawRectangle((int)(subMathSectionLabel.x + 391.0f * 2.0f + spacing * 4.0f), (int)(subMathSectionLabel.y + labelHeight / 2.0f), (int)(subMathSectionLabel.width - 2.0f), (int)labelHeight, eduTurquoise);
@@ -275,48 +299,72 @@ int main() {
             DrawText(" << Back", (int)(backButtonRect.x + 6.0f), (int)(backButtonRect.y + 13.0f), 25, RAYWHITE);
             DrawRectangleRounded({ resusrsesP1 }, 0.1f, 10, resursesColorP1);
             DrawRectangleRounded({ resusrsesP1 }, 0.1f, 10, resursesColorP1);
-            DrawText("1", resusrsesP1.x+20, resusrsesP1.y+10, 25, RAYWHITE);
+            DrawText("1", resusrsesP1.x + 20, resusrsesP1.y + 10, 25, RAYWHITE);
             DrawRectangleRounded({ resusrsesP2 }, 0.1f, 10, resursesColorP2);
-            DrawText("2", resusrsesP2.x+20, resusrsesP2.y+10, 25, RAYWHITE);
+            DrawText("2", resusrsesP2.x + 20, resusrsesP2.y + 10, 25, RAYWHITE);
             DrawRectangleRounded({ resusrsesP3 }, 0.1f, 10, resursesColorP3);
-            DrawText("3", resusrsesP3.x+20, resusrsesP3.y+10, 25, RAYWHITE);
+            DrawText("3", resusrsesP3.x + 20, resusrsesP3.y + 10, 25, RAYWHITE);
             DrawRectangleRounded({ resusrsesP4 }, 0.1f, 10, resursesColorP4);
-            DrawText("4", resusrsesP4.x+20, resusrsesP4.y+10, 25, RAYWHITE);
+            DrawText("4", resusrsesP4.x + 20, resusrsesP4.y + 10, 25, RAYWHITE);
             DrawRectangleRounded({ resusrsesP5 }, 0.1f, 10, resursesColorP5);
-            DrawText("5", resusrsesP5.x+20, resusrsesP5.y+10, 25, RAYWHITE);
+            DrawText("5", resusrsesP5.x + 20, resusrsesP5.y + 10, 25, RAYWHITE);
             DrawRectangleRounded({ 40.0f, separationLineY + 30.0f, 1320.0f , mainSectionHeight }, 0.2f, 10, subSectionsBg);
             DrawRectangle(40, (int)separationLineY, GetScreenWidth() - 80, 2, eduBlue);
             break;
 
-            case resursesTab1:
-                DrawText("(ax+b)(cx+d)=0 ", 20, 70, 70, eduBlue);
-                DrawRectangleRounded(backButtonRect, 0.3f, 10, backBtnColor);
-                DrawRectangleRoundedLines(backButtonRect, 0.3f, 10, sectionOutlines);
-                DrawTexture(texture, 1150, 10, WHITE);
-                DrawText(" << Back", (int)(backButtonRect.x + 6.0f), (int)(backButtonRect.y + 13.0f), 25, RAYWHITE);
-                DrawRectangle(40.0f, (int)separationLineY, GetScreenWidth() - 80, 2, eduBlue);
-                DrawRectangleRounded({ 40.0f, separationLineY + 30.0f, 1320.0f , mainSectionHeight }, 0.1f, 10, subSectionsBg);
-                DrawRectangleRounded({ resusrsesP1 }, 0.1f, 10, resursesColorP1);
-                DrawRectangleRounded({ resusrsesP1 }, 0.1f, 10, resursesColorP1);
-                DrawText("1", resusrsesP1.x + 20, resusrsesP1.y + 10, 25, RAYWHITE);
-                DrawRectangleRounded({ resusrsesP2 }, 0.1f, 10, resursesColorP2);
-                DrawText("2", resusrsesP2.x + 20, resusrsesP2.y + 10, 25, RAYWHITE);
-                DrawRectangleRounded({ resusrsesP3 }, 0.1f, 10, resursesColorP3);
-                DrawText("3", resusrsesP3.x + 20, resusrsesP3.y + 10, 25, RAYWHITE);
-                DrawRectangleRounded({ resusrsesP4 }, 0.1f, 10, resursesColorP4);
-                DrawText("4", resusrsesP4.x + 20, resusrsesP4.y + 10, 25, RAYWHITE);
-                DrawRectangleRounded({ resusrsesP5 }, 0.1f, 10, resursesColorP5);
-                DrawText("5", resusrsesP5.x + 20, resusrsesP5.y + 10, 25, RAYWHITE);
-                break;
-
-        case exercises:
-            DrawText("Welcome to ", 20, 70, 70, eduBlue);
-            DrawText("Maths Homework and Practice", 20, 140, 70, eduTurquoise);
+        case resursesTab1:
+            DrawText("(ax+b)(cx+d)=0 ", 20, 70, 70, eduBlue);
             DrawRectangleRounded(backButtonRect, 0.3f, 10, backBtnColor);
             DrawRectangleRoundedLines(backButtonRect, 0.3f, 10, sectionOutlines);
             DrawTexture(texture, 1150, 10, WHITE);
             DrawText(" << Back", (int)(backButtonRect.x + 6.0f), (int)(backButtonRect.y + 13.0f), 25, RAYWHITE);
             DrawRectangle(40.0f, (int)separationLineY, GetScreenWidth() - 80, 2, eduBlue);
+            DrawRectangleRounded({ 40.0f, separationLineY + 30.0f, 1320.0f , mainSectionHeight }, 0.1f, 10, subSectionsBg);
+            DrawRectangleRounded({ resusrsesP1 }, 0.1f, 10, resursesColorP1);
+            DrawRectangleRounded({ resusrsesP1 }, 0.1f, 10, resursesColorP1);
+            DrawText("1", resusrsesP1.x + 20, resusrsesP1.y + 10, 25, RAYWHITE);
+            DrawRectangleRounded({ resusrsesP2 }, 0.1f, 10, resursesColorP2);
+            DrawText("2", resusrsesP2.x + 20, resusrsesP2.y + 10, 25, RAYWHITE);
+            DrawRectangleRounded({ resusrsesP3 }, 0.1f, 10, resursesColorP3);
+            DrawText("3", resusrsesP3.x + 20, resusrsesP3.y + 10, 25, RAYWHITE);
+            DrawRectangleRounded({ resusrsesP4 }, 0.1f, 10, resursesColorP4);
+            DrawText("4", resusrsesP4.x + 20, resusrsesP4.y + 10, 25, RAYWHITE);
+            DrawRectangleRounded({ resusrsesP5 }, 0.1f, 10, resursesColorP5);
+            DrawText("5", resusrsesP5.x + 20, resusrsesP5.y + 10, 25, RAYWHITE);
+            break;
+
+        case exercises:
+            DrawText("Maths Homework and Practice", 20, 70, 70, eduTurquoise);
+            DrawRectangleRounded(hwPracticeRect, 0.5f, 10, hwPracticeRectColor);
+            DrawText("Homework", (int)(hwPracticeRect.x + 40.0f), (int)(hwPracticeRect.y + 10.0f), 25, RAYWHITE);
+            DrawRectangleRounded(exPracticeRect, 0.5f, 10, exPracticeRectColor);
+            DrawText("Practice", (int)(exPracticeRect.x + 50.0f), (int)(exPracticeRect.y + 10.0f), 25, RAYWHITE);
+
+            DrawRectangleRounded(backButtonRect, 0.3f, 10, backBtnColor);
+            DrawRectangleRoundedLines(backButtonRect, 0.3f, 10, sectionOutlines);
+            DrawTexture(texture, 1150, 10, WHITE);
+            DrawText(" << Back", (int)(backButtonRect.x + 6.0f), (int)(backButtonRect.y + 13.0f), 25, RAYWHITE);
+
+            
+            DrawRectangle(40, (int)separationLineY, GetScreenWidth() - 80, 2, eduBlue);
+            DrawRectangleRounded({ 40.0f, separationLineY + 30.0f, 1320.0f , mainSectionHeight }, 0.1f, 10, subSectionsBg);
+            break;
+
+        case exPractice:
+            DrawText("Maths Homework and Practice", 20, 70, 70, eduTurquoise);
+            DrawRectangleRounded(backButtonRect, 0.3f, 10, backBtnColor);
+
+            DrawRectangleRounded(hwPracticeRect, 0.5f, 10, hwPracticeRectColor);
+            DrawText("Homework", (int)(hwPracticeRect.x + 40.0f), (int)(hwPracticeRect.y + 10.0f), 25, RAYWHITE);
+            DrawRectangleRounded(exPracticeRect, 0.5f, 10, exPracticeRectColor);
+            DrawText("Practice", (int)(exPracticeRect.x + 50.0f), (int)(exPracticeRect.y + 10.0f), 25, RAYWHITE);
+
+            DrawRectangleRoundedLines(backButtonRect, 0.3f, 10, sectionOutlines);
+            DrawTexture(texture, 1150, 10, WHITE);
+            DrawText(" << Back", (int)(backButtonRect.x + 6.0f), (int)(backButtonRect.y + 13.0f), 25, RAYWHITE);
+
+          
+            DrawRectangle(40, (int)separationLineY, GetScreenWidth() - 80, 2, eduBlue);
             DrawRectangleRounded({ 40.0f, separationLineY + 30.0f, 1320.0f , mainSectionHeight }, 0.1f, 10, subSectionsBg);
             break;
         }

@@ -1,26 +1,25 @@
 ﻿  main.cpp
-C:\Games\VSCode Projects\C++\EduCore\main\main\main.cpp(278,58): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Games\VSCode Projects\C++\EduCore\main\main\main.cpp(278,40): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Games\VSCode Projects\C++\EduCore\main\main\main.cpp(280,58): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Games\VSCode Projects\C++\EduCore\main\main\main.cpp(280,40): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Games\VSCode Projects\C++\EduCore\main\main\main.cpp(282,58): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Games\VSCode Projects\C++\EduCore\main\main\main.cpp(282,40): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Games\VSCode Projects\C++\EduCore\main\main\main.cpp(284,58): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Games\VSCode Projects\C++\EduCore\main\main\main.cpp(284,40): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Games\VSCode Projects\C++\EduCore\main\main\main.cpp(286,58): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Games\VSCode Projects\C++\EduCore\main\main\main.cpp(286,40): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Games\VSCode Projects\C++\EduCore\main\main\main.cpp(297,31): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Games\VSCode Projects\C++\EduCore\main\main\main.cpp(301,65): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Games\VSCode Projects\C++\EduCore\main\main\main.cpp(301,45): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Games\VSCode Projects\C++\EduCore\main\main\main.cpp(303,65): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Games\VSCode Projects\C++\EduCore\main\main\main.cpp(303,45): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Games\VSCode Projects\C++\EduCore\main\main\main.cpp(305,65): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Games\VSCode Projects\C++\EduCore\main\main\main.cpp(305,45): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Games\VSCode Projects\C++\EduCore\main\main\main.cpp(307,65): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Games\VSCode Projects\C++\EduCore\main\main\main.cpp(307,45): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Games\VSCode Projects\C++\EduCore\main\main\main.cpp(309,65): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Games\VSCode Projects\C++\EduCore\main\main\main.cpp(309,45): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Games\VSCode Projects\C++\EduCore\main\main\main.cpp(319,27): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-  main.vcxproj -> C:\Games\VSCode Projects\C++\EduCore\main\x64\Debug\main.exe
+C:\Users\ivanl\Desktop\html\EduCore\main\main\main.cpp(302,61): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\ivanl\Desktop\html\EduCore\main\main\main.cpp(302,41): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\ivanl\Desktop\html\EduCore\main\main\main.cpp(304,61): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\ivanl\Desktop\html\EduCore\main\main\main.cpp(304,41): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\ivanl\Desktop\html\EduCore\main\main\main.cpp(306,61): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\ivanl\Desktop\html\EduCore\main\main\main.cpp(306,41): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\ivanl\Desktop\html\EduCore\main\main\main.cpp(308,61): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\ivanl\Desktop\html\EduCore\main\main\main.cpp(308,41): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\ivanl\Desktop\html\EduCore\main\main\main.cpp(310,61): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\ivanl\Desktop\html\EduCore\main\main\main.cpp(310,41): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\ivanl\Desktop\html\EduCore\main\main\main.cpp(321,27): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\ivanl\Desktop\html\EduCore\main\main\main.cpp(325,61): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\ivanl\Desktop\html\EduCore\main\main\main.cpp(325,41): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\ivanl\Desktop\html\EduCore\main\main\main.cpp(327,61): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\ivanl\Desktop\html\EduCore\main\main\main.cpp(327,41): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\ivanl\Desktop\html\EduCore\main\main\main.cpp(329,61): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\ivanl\Desktop\html\EduCore\main\main\main.cpp(329,41): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\ivanl\Desktop\html\EduCore\main\main\main.cpp(331,61): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\ivanl\Desktop\html\EduCore\main\main\main.cpp(331,41): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\ivanl\Desktop\html\EduCore\main\main\main.cpp(333,61): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\ivanl\Desktop\html\EduCore\main\main\main.cpp(333,41): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  main.vcxproj -> C:\Users\ivanl\Desktop\html\EduCore\main\x64\Debug\main.exe
   'pwsh.exe' is not recognized as an internal or external command,
   operable program or batch file.
