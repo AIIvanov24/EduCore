@@ -3,7 +3,7 @@
 int main() {
     InitWindow(1400, 800, "EduCore Education");
     SetTargetFPS(60);
-    enum appState { homePage, mathPage, exercises, test, materials };
+    enum appState { homePage, mathPage, exercises, test, materials, resursesTab1, resursesTab2, resursesTab3, resursesTab4, resursesTab5, };
     appState currentPage = homePage;
     Color eduBlue = { 0, 160, 233, 255 };   // RGB values for EduCore Blue
     Color eduOrange = { 252, 176, 33, 255 }; // RGB values for EduCore Orange
@@ -24,8 +24,13 @@ int main() {
     Rectangle subMathSectionHw = { subMathSection.x + 390.0f + spacing * 2.0f, subMathSection.y, subMathSection.width, subMathSection.height };
     Rectangle subMathSectionTest = { subMathSection.x + 390.0f * 2.0f + spacing * 4.0f, subMathSection.y, subMathSection.width, subMathSection.height };
     Rectangle subMathSectionLabel = { subMathSection.x - 2.0f, subMathSection.y - 1.0f, subMathSection.width + 3.0f, 40.0f };
-
     Rectangle mathSection = { 80.0f , mainSectionY + 5.0f * spacing, 1320.0f - 80.0f , 200.0f };
+	Rectangle resusrsesP1 = { 480.0f, 160.0f, 50.0f , 45.0f };
+	Rectangle resusrsesP2 = { 540.0f, 160.0f, 50.0f , 45.0f };
+	Rectangle resusrsesP3 = { 600.0f, 160.0f, 50.0f , 45.0f };
+	Rectangle resusrsesP4 = { 660.0f, 160.0f, 50.0f , 45.0f };
+	Rectangle resusrsesP5 = { 720.0f, 160.0f, 50.0f , 45.0f };
+
     float labelHeight = 40.0f;
     Rectangle labelRect = { mathSection.x - 2.0f, mathSection.y - 1.0f, mathSection.width + 3.0f, labelHeight };
 
@@ -89,6 +94,69 @@ int main() {
                     currentPage = mathPage; // change the window to the math page
                 }
             }
+            
+            if (CheckCollisionPointRec(mousePoint, resusrsesP1)) {
+                if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
+                    currentPage = resursesTab1; // change the window to the math page
+                }
+            }
+            if (CheckCollisionPointRec(mousePoint, resusrsesP2)) {
+                if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
+                    currentPage = resursesTab2; // change the window to the math page
+                }
+            }
+            if (CheckCollisionPointRec(mousePoint, resusrsesP3)) {
+                if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
+                    currentPage = resursesTab3; // change the window to the math page
+                }
+            }
+            if (CheckCollisionPointRec(mousePoint, resusrsesP4)) {
+                if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
+                    currentPage = resursesTab4; // change the window to the math page
+                }
+            }
+            if (CheckCollisionPointRec(mousePoint, resusrsesP5)) {
+                if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
+                    currentPage = resursesTab5; // change the window to the math page
+                }
+            
+                }
+            }
+            break;
+        case resursesTab1: {
+
+            if (CheckCollisionPointRec(mousePoint, backButtonRect)) {
+                if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
+                    currentPage = mathPage; // change the window to the math page
+                }
+            }
+
+            if (CheckCollisionPointRec(mousePoint, resusrsesP1)) {
+                if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
+                    currentPage = resursesTab1; // change the window to the math page
+                }
+            }
+            if (CheckCollisionPointRec(mousePoint, resusrsesP2)) {
+                if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
+                    currentPage = resursesTab2; // change the window to the math page
+                }
+            }
+            if (CheckCollisionPointRec(mousePoint, resusrsesP3)) {
+                if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
+                    currentPage = resursesTab3; // change the window to the math page
+                }
+            }
+            if (CheckCollisionPointRec(mousePoint, resusrsesP4)) {
+                if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
+                    currentPage = resursesTab4; // change the window to the math page
+                }
+            }
+            if (CheckCollisionPointRec(mousePoint, resusrsesP5)) {
+                if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
+                    currentPage = resursesTab5; // change the window to the math page
+                }
+
+            }
         }
         break;
 
@@ -104,6 +172,11 @@ int main() {
         }
 
         bool hoverBack = CheckCollisionPointRec(mousePoint, backButtonRect);
+        bool  hoverResursesP1 = CheckCollisionPointRec(mousePoint, resusrsesP1);
+        bool  hoverResursesP2 = CheckCollisionPointRec(mousePoint, resusrsesP2);
+        bool  hoverResursesP3 = CheckCollisionPointRec(mousePoint, resusrsesP3);
+        bool  hoverResursesP4 = CheckCollisionPointRec(mousePoint, resusrsesP4);
+        bool  hoverResursesP5 = CheckCollisionPointRec(mousePoint, resusrsesP5);
 		bool hoverSubMathText = CheckCollisionPointRec(mousePoint, subMathSection);
         bool hoverSubMathTextHw = CheckCollisionPointRec(mousePoint, subMathSectionHw);
         bool hoverSubMathTextTest = CheckCollisionPointRec(mousePoint, subMathSectionTest);
@@ -111,6 +184,11 @@ int main() {
         Color hoverSubTextColorHw = hoverSubMathTextHw ? LIGHTGRAY : GRAY;
         Color hoverSubTextColorTest = hoverSubMathTextTest ? LIGHTGRAY : GRAY;
         Color backBtnColor = hoverBack ? eduBlue : subSectionsBg;
+        Color resursesColorP1 = hoverResursesP1 ? eduBlue : subSectionsBg;
+        Color resursesColorP2 = hoverResursesP2 ? eduBlue : subSectionsBg;
+        Color resursesColorP3 = hoverResursesP3 ? eduBlue : subSectionsBg;
+        Color resursesColorP4 = hoverResursesP4 ? eduBlue : subSectionsBg;
+        Color resursesColorP5 = hoverResursesP5 ? eduBlue : subSectionsBg;
         BeginDrawing();
         ClearBackground(mainBackground);
 
@@ -190,23 +268,55 @@ int main() {
             break;
 
         case materials:
-            DrawText("Welcome to ", 20, 70, 70, eduBlue);
-            DrawText("Maths Materials & Lessons", 20, 140, 70, eduTurquoise);
+            DrawText("Maths Materials & Lessons", 20, 70, 70, eduTurquoise);
             DrawRectangleRounded(backButtonRect, 0.3f, 10, backBtnColor);
             DrawRectangleRoundedLines(backButtonRect, 0.3f, 10, sectionOutlines);
             DrawTexture(texture, 1150, 10, WHITE);
             DrawText(" << Back", (int)(backButtonRect.x + 6.0f), (int)(backButtonRect.y + 13.0f), 25, RAYWHITE);
-            DrawRectangleRounded({ 40.0f, separationLineY + 30.0f, 1320.0f , mainSectionHeight }, 0.1f, 10, subSectionsBg);
+            DrawRectangleRounded({ resusrsesP1 }, 0.1f, 10, resursesColorP1);
+            DrawRectangleRounded({ resusrsesP1 }, 0.1f, 10, resursesColorP1);
+            DrawText("1", resusrsesP1.x+20, resusrsesP1.y+10, 25, RAYWHITE);
+            DrawRectangleRounded({ resusrsesP2 }, 0.1f, 10, resursesColorP2);
+            DrawText("2", resusrsesP2.x+20, resusrsesP2.y+10, 25, RAYWHITE);
+            DrawRectangleRounded({ resusrsesP3 }, 0.1f, 10, resursesColorP3);
+            DrawText("3", resusrsesP3.x+20, resusrsesP3.y+10, 25, RAYWHITE);
+            DrawRectangleRounded({ resusrsesP4 }, 0.1f, 10, resursesColorP4);
+            DrawText("4", resusrsesP4.x+20, resusrsesP4.y+10, 25, RAYWHITE);
+            DrawRectangleRounded({ resusrsesP5 }, 0.1f, 10, resursesColorP5);
+            DrawText("5", resusrsesP5.x+20, resusrsesP5.y+10, 25, RAYWHITE);
+            DrawRectangleRounded({ 40.0f, separationLineY + 30.0f, 1320.0f , mainSectionHeight }, 0.2f, 10, subSectionsBg);
             DrawRectangle(40, (int)separationLineY, GetScreenWidth() - 80, 2, eduBlue);
             break;
 
+            case resursesTab1:
+                DrawText("(ax+b)(cx+d)=0 ", 20, 70, 70, eduBlue);
+                DrawRectangleRounded(backButtonRect, 0.3f, 10, backBtnColor);
+                DrawRectangleRoundedLines(backButtonRect, 0.3f, 10, sectionOutlines);
+                DrawTexture(texture, 1150, 10, WHITE);
+                DrawText(" << Back", (int)(backButtonRect.x + 6.0f), (int)(backButtonRect.y + 13.0f), 25, RAYWHITE);
+                DrawRectangle(40.0f, (int)separationLineY, GetScreenWidth() - 80, 2, eduBlue);
+                DrawRectangleRounded({ 40.0f, separationLineY + 30.0f, 1320.0f , mainSectionHeight }, 0.1f, 10, subSectionsBg);
+                DrawRectangleRounded({ resusrsesP1 }, 0.1f, 10, resursesColorP1);
+                DrawRectangleRounded({ resusrsesP1 }, 0.1f, 10, resursesColorP1);
+                DrawText("1", resusrsesP1.x + 20, resusrsesP1.y + 10, 25, RAYWHITE);
+                DrawRectangleRounded({ resusrsesP2 }, 0.1f, 10, resursesColorP2);
+                DrawText("2", resusrsesP2.x + 20, resusrsesP2.y + 10, 25, RAYWHITE);
+                DrawRectangleRounded({ resusrsesP3 }, 0.1f, 10, resursesColorP3);
+                DrawText("3", resusrsesP3.x + 20, resusrsesP3.y + 10, 25, RAYWHITE);
+                DrawRectangleRounded({ resusrsesP4 }, 0.1f, 10, resursesColorP4);
+                DrawText("4", resusrsesP4.x + 20, resusrsesP4.y + 10, 25, RAYWHITE);
+                DrawRectangleRounded({ resusrsesP5 }, 0.1f, 10, resursesColorP5);
+                DrawText("5", resusrsesP5.x + 20, resusrsesP5.y + 10, 25, RAYWHITE);
+                break;
+
         case exercises:
             DrawText("Welcome to ", 20, 70, 70, eduBlue);
-            DrawText("Maths Exercises", 20, 140, 70, eduTurquoise);
+            DrawText("Maths Homework and Practice", 20, 140, 70, eduTurquoise);
             DrawRectangleRounded(backButtonRect, 0.3f, 10, backBtnColor);
             DrawRectangleRoundedLines(backButtonRect, 0.3f, 10, sectionOutlines);
             DrawTexture(texture, 1150, 10, WHITE);
             DrawText(" << Back", (int)(backButtonRect.x + 6.0f), (int)(backButtonRect.y + 13.0f), 25, RAYWHITE);
+            DrawRectangle(40.0f, (int)separationLineY, GetScreenWidth() - 80, 2, eduBlue);
             DrawRectangleRounded({ 40.0f, separationLineY + 30.0f, 1320.0f , mainSectionHeight }, 0.1f, 10, subSectionsBg);
             break;
         }
