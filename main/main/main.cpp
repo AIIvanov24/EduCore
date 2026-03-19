@@ -11,6 +11,8 @@ int main() {
     Color subSectionsBg = { 20, 30, 45, 255 }; // RGB values for background color for the main parts of the app
     Color sectionOutlines = { 7, 112, 182, 255 }; // RGB values for the outlines of the sections
     Color eduTurquoise = { 0, 120, 130, 255 }; // RGB values for EduCore Turquoise
+    Color eduGreen = { 46, 204, 113, 255 };
+    Color eduRed = { 231, 76, 60, 255 };
     float spacing = 20.0f; // Spacing between elements
     float separationLineY = 220.0f; // Y position for the separation line
     float mainSectionHeight = (float)GetScreenHeight() - separationLineY - spacing * 2.0f; // Height for the main section
@@ -40,6 +42,29 @@ int main() {
     ImageResize(&image, 200, 200);
     Texture2D texture = LoadTextureFromImage(image);
     UnloadImage(image);
+
+    struct Question {
+        const char* text;
+        const char* answers[3]; // а, б, в
+        int correct;            // 0, 1 или 2
+    };
+
+    // Твоите 10 въпроса (без системи)
+    Question practiceQuiz[10] = {
+        {"Solve: (x - 3)(x + 2) = 0", {"x=3, x=-2", "x=-3, x=2", "x=1"}, 0},
+        {"Solve: 2x + 10 = 3x - 5", {"x=5", "x=15", "x=-15"}, 1},
+        {"Roots of: x^2 - 7x + 10 = 0", {"x=2, 5", "x=-2, -5", "x=3, 4"}, 0},
+        {"Solve: 3(x - 4) = 0", {"x=0", "x=-4", "x=4"}, 2},
+        {"Solve: x^2 - 9 = 0", {"x=3", "x=+-3", "x=9"}, 1},
+        {"Solve: x^2 - 4xy + 4y^2 = 0", {"x=2y", "x=y", "x=4y"}, 0},
+        {"Solve: 4x - 12 = 2x + 6", {"x=6", "x=12", "x=9"}, 2},
+        {"Discriminant of: x^2 + 4x + 4 = 0", {"D=16", "D=0", "D=8"}, 1},
+        {"Solve: x^2 + xy - 6y^2 = 0", {"x=2y, -3y", "x=y, 6y", "x=3y, -2y"}, 0},
+        {"Solve: x^2 - xy = 0", {"x=1", "x=0, y", "x=0, x=y"}, 2}
+    };
+
+    int currentQ = 0;       // Кой въпрос сме в момента
+    int selectedAns = -1;   // Кой отговор е цъкнал потребителя (-1 значи никой)
 
     while (!WindowShouldClose()) {
         Vector2 mousePoint = GetMousePosition();
@@ -345,9 +370,37 @@ int main() {
             DrawTexture(texture, 1150, 10, WHITE);
             DrawText(" << Back", (int)(backButtonRect.x + 6.0f), (int)(backButtonRect.y + 13.0f), 25, RAYWHITE);
 
-            
+
             DrawRectangle(40, (int)separationLineY, GetScreenWidth() - 80, 2, eduBlue);
             DrawRectangleRounded({ 40.0f, separationLineY + 30.0f, 1320.0f , mainSectionHeight }, 0.1f, 10, subSectionsBg);
+
+            DrawText("1. Linear Equations", 50, (int)(separationLineY + 50.0f), 30, eduBlue);
+            DrawText("Problem 1: 4x - 12 = 2x + 6", 50, (int)(separationLineY + 90.0f), 25, RAYWHITE);
+            DrawText("Answer: x = 9", 50, (int)(separationLineY + 120), 20, eduOrange);
+
+            DrawText("Problem 2: 5(x - 2) = 3x + 4", 550, (int)(separationLineY + 90.0f), 25, RAYWHITE);
+            DrawText("Answer: x = 7", 550, (int)(separationLineY + 120), 20, eduOrange);
+
+            DrawText("2. Product of Linear Factors: (ax+b)*(cx+d)=0", 50, (int)(separationLineY + 160.0f), 30, eduBlue);
+            DrawText("Problem 1: (x - 5)*(2x + 8) = 0", 50, (int)(separationLineY + 200.0f), 25, RAYWHITE);
+            DrawText("Answer: x_1 = 5;  x_2 = -4", 50, (int)(separationLineY + 230), 20, eduOrange);
+
+            DrawText("Problem 2: (3x - 9)*(x + 7) = 0", 550, (int)(separationLineY + 200.0f), 25, RAYWHITE);
+            DrawText("Answer: x_1 = 3;  x_2 = -7", 550, (int)(separationLineY + 230), 20, eduOrange);
+
+            DrawText("3. Quadratic Equations", 50, (int)(separationLineY + 270.0f), 30, eduBlue);
+            DrawText("Problem 1: x^2 - 5x + 6 = 0", 50, (int)(separationLineY + 310.0f), 25, RAYWHITE);
+            DrawText("Answer: x_1 = 2, x_2 = 3", 50, (int)(separationLineY + 340), 20, eduOrange);
+
+            DrawText("Problem 2: x^2 + 2x - 8 = 0", 550, (int)(separationLineY + 310.0f), 25, RAYWHITE);
+            DrawText("Answer: x_1 = 2, x_2 = -4", 550, (int)(separationLineY + 340), 20, eduOrange);
+
+            DrawText("4. Homogeneous Equations", 50, (int)(separationLineY + 380.0f), 30, eduBlue);
+            DrawText("Problem 1: 2x^2 - 5xy + 2y^2 = 0", 50, (int)(separationLineY + 420.0f), 25, RAYWHITE);
+            DrawText("Answer: x = 2y or x = 0.5y", 50, (int)(separationLineY + 450), 20, eduOrange);
+
+            DrawText("Problem 2: x^2 + xy - 6y^2 = 0", 550, (int)(separationLineY + 420.0f), 25, RAYWHITE);
+            DrawText("Answer: x = 2y or x = -3y", 550, (int)(separationLineY + 450), 20, eduOrange);
             break;
 
         case exPractice:
@@ -363,9 +416,63 @@ int main() {
             DrawTexture(texture, 1150, 10, WHITE);
             DrawText(" << Back", (int)(backButtonRect.x + 6.0f), (int)(backButtonRect.y + 13.0f), 25, RAYWHITE);
 
-          
+
             DrawRectangle(40, (int)separationLineY, GetScreenWidth() - 80, 2, eduBlue);
+            // Главният контейнер за теста
             DrawRectangleRounded({ 40.0f, separationLineY + 30.0f, 1320.0f , mainSectionHeight }, 0.1f, 10, subSectionsBg);
+
+            // --- ЛОГИКА ЗА ТЕСТА (ВЪТРЕ В КОНТЕЙНЕРА) ---
+            float testStartY = separationLineY + 60.0f; // Малко разстояние от горния ръб на кутията
+
+            // 1. Изписване на въпроса
+            DrawText(TextFormat("Question %d/10", currentQ + 1), 70, (int)testStartY, 25, eduOrange);
+            DrawText(practiceQuiz[currentQ].text, 70, (int)(testStartY + 40), 35, RAYWHITE);
+
+            // 2. Бутони за отговори (А, B, C)
+            for (int i = 0; i < 3; i++) {
+                // Позиционираме ги един под друг
+                Rectangle ansRect = { 70.0f, testStartY + 120.0f + (i * 70.0f), 500.0f, 55.0f };
+                Color boxColor = ColorAlpha(eduBlue, 0.2f); // По-тъмен фон за бутоните по подразбиране
+
+                if (selectedAns != -1) {
+                    // Вече е кликнато - показваме резултат
+                    if (i == practiceQuiz[currentQ].correct) boxColor = eduGreen;
+                    else if (i == selectedAns) boxColor = eduRed;
+                }
+                else if (CheckCollisionPointRec(mousePoint, ansRect)) {
+                    boxColor = eduTurquoise; // Свети при ховър
+                    if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) selectedAns = i;
+                }
+
+                DrawRectangleRounded(ansRect, 0.2f, 10, boxColor);
+                DrawRectangleRoundedLines(ansRect, 0.2f, 10, sectionOutlines);
+
+                // Префикс A), B), C)
+                const char* prefix = (i == 0) ? "A) " : (i == 1) ? "B) " : "C) ";
+                DrawText(TextFormat("%s %s", prefix, practiceQuiz[currentQ].answers[i]),
+                    (int)ansRect.x + 20, (int)ansRect.y + 15, 22, RAYWHITE);
+            }
+
+            // 3. Бутон за следващ въпрос
+            if (selectedAns != -1) {
+                Rectangle nextBtn = { 1100, separationLineY + 450, 200, 50 };
+                bool hoverNext = CheckCollisionPointRec(mousePoint, nextBtn);
+
+                DrawRectangleRounded(nextBtn, 0.2f, 10, hoverNext ? eduOrange : DARKGRAY);
+                DrawText(currentQ < 9 ? "Next Question >" : "Finish Test", (int)nextBtn.x + 25, (int)nextBtn.y + 15, 20, RAYWHITE);
+
+                if (hoverNext && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+                    if (currentQ < 9) {
+                        currentQ++;
+                        selectedAns = -1;
+                    }
+                    else {
+                        currentPage = exercises; // Връщаме го в главното меню след края
+                        currentQ = 0; // Рестартираме за следващия път
+                        selectedAns = -1;
+                    }
+                }
+            }
             break;
         }
 
