@@ -1,7 +1,13 @@
+# Build output
+Debug/
+Release/
+x64/
+x86/
+
+# VS files
 .vs/
-out/
-build/
-*.obj
-*.exe
-*.pdb
-*.sln.dotsettings.user
+*.user
+*.suo
+
+# NuGet packages (restored automatically)
+packages/
