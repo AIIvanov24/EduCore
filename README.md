@@ -1,6 +1,6 @@
 # EduCore — Електронно Училище
 
-![EduCore Logo](main/main/eduCoreLogo.png)
+<img src="main/main/eduCoreLogo.png" width="150"/>
 
 **EduCore** is a desktop educational application built with C++ and raylib. It provides students with structured learning materials, practice exercises, and timed tests — with results tracked in a built-in gradebook.
 
@@ -56,8 +56,6 @@ Visual Studio should restore raylib automatically via NuGet on first build. If i
 
 Press **F5** or click **Run** to build and launch the app.
 
-> ⚠️ Make sure `eduCoreLogo.png` is in the same directory as the executable (or in the project root when running from Visual Studio).
-
 ---
 
 ## Project Structure
@@ -111,25 +109,14 @@ Formula: `grade = percentage × 0.06` (min: 2.00, max: 6.00)
 
 ---
 
-## .gitignore Recommendations
+## Team
 
-Add the following to your `.gitignore` to keep the repo clean:
-
-```
-# Build output
-Debug/
-Release/
-x64/
-x86/
-
-# Visual Studio
-.vs/
-*.user
-*.suo
-
-# NuGet (restored automatically)
-packages/
-```
+| Name | Role |
+|------|------|
+| [AIIvanov24](https://github.com/AIIvanov24) | Scrum Trainer |
+| [IGLapchev24](https://github.com/IGLapchev24) | Backend Developer |
+| [ZDKostov24](https://github.com/ZDKostov24) | Backend Developer |
+| [SSDimitrov24](https://github.com/SSDimitrov24) | Quality Engineer |
 
 ---
 
@@ -137,10 +124,4 @@ packages/
 
 - [raylib](https://www.raylib.com/) — Simple and easy-to-use game/graphics library for C/C++
 - C++11
-- Visual Studio 2022
-
----
-
-## License
-
-This project was created for educational purposes. Feel free to use and modify it.
+- Visual Studio 2026
