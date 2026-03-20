@@ -504,7 +504,7 @@ int main() {
             DrawRectangleRoundedLines(backButtonRect, 0.3f, 10, sectionOutlines);
             DrawTexture(texture, 1150, 10, WHITE);
             DrawText(" << Back", (int)(backButtonRect.x + 6.0f), (int)(backButtonRect.y + 13.0f), 25, RAYWHITE);
-            DrawRectangle(40.0f, (int)separationLineY, GetScreenWidth() - 80, 2, eduBlue);
+            DrawRectangle(40, (int)separationLineY, GetScreenWidth() - 80, 2, eduBlue);
             DrawRectangleRounded({ 40.0f, separationLineY + 30.0f, 1320.0f , mainSectionHeight }, 0.1f, 10, subSectionsBg);
             DrawText("TOPIC: Zero-Product Property", 70, (int)separationLineY + 60, 35, eduBlue);
             DrawText("Concept: If the product of two factors is 0, at least one must be 0.", 70, (int)separationLineY + 110, 22, eduTurquoise);
@@ -562,63 +562,97 @@ int main() {
 
 
         case resursesTab3:
-            DrawText("Quadratic Equations", 20, 70, 70, eduTurquoise);
+            DrawText("QUADRATIC EQUATIONS", 20, 70, 70, eduTurquoise);
             DrawRectangleRounded(backButtonRect, 0.3f, 10, backBtnColor);
             DrawRectangleRoundedLines(backButtonRect, 0.3f, 10, sectionOutlines);
             DrawTexture(texture, 1150, 10, WHITE);
             DrawText(" << Back", (int)(backButtonRect.x + 6.0f), (int)(backButtonRect.y + 13.0f), 25, RAYWHITE);
-            DrawRectangle(40.0f, (int)separationLineY, GetScreenWidth() - 80, 2, eduBlue);
+            DrawRectangle(40, (int)separationLineY, GetScreenWidth() - 80, 2, eduBlue);
             DrawRectangleRounded({ 40.0f, separationLineY + 30.0f, 1320.0f , mainSectionHeight }, 0.1f, 10, subSectionsBg);
+            DrawText("TOPIC: Solving ax^2 + bx + c = 0", 70, (int)separationLineY + 60, 35, eduBlue);
+            DrawText("Concept: Use the Discriminant (D) to find the number of real roots.", 70, (int)separationLineY + 110, 22, RAYWHITE);
+            DrawText("Formula: D = b^2 - 4ac", 70, (int)separationLineY + 145, 26, eduTurquoise);
+            DrawText("Roots: x = (-b +/- sqrt(D)) / 2a", 450, (int)separationLineY + 145, 26, eduTurquoise);
+            DrawText("Example 1: x^2 - 5x + 6 = 0", 70, (int)separationLineY + 210, 25, RAYWHITE);
+            DrawText("D = 1  =>  x1 = 3, x2 = 2", 500, (int)separationLineY + 210, 25, eduOrange);
+            DrawText("Example 2: x^2 - 4x + 4 = 0", 70, (int)separationLineY + 255, 25, RAYWHITE);
+            DrawText("D = 0  =>  x = 2 (Double root)", 500, (int)separationLineY + 255, 25, eduOrange);
+            DrawText("Example 3: x^2 + 2x + 5 = 0", 70, (int)separationLineY + 300, 25, RAYWHITE);
+            DrawText("D = -16 => No real solutions", 500, (int)separationLineY + 300, 25, eduOrange);
+            DrawText("Tip: If D > 0 (2 roots), If D = 0 (1 root), If D < 0 (No real roots).", 70, (int)separationLineY + 370, 22, eduTurquoise);
             DrawRectangleRounded({ resusrsesP1 }, 0.1f, 10, resursesColorP1);
-            DrawText("1", resusrsesP1.x + 20, resusrsesP1.y + 10, 25, RAYWHITE);
+            DrawText("1", (int)resusrsesP1.x + 20, (int)resusrsesP1.y + 10, 25, RAYWHITE);
             DrawRectangleRounded({ resusrsesP2 }, 0.1f, 10, resursesColorP2);
-            DrawText("2", resusrsesP2.x + 20, resusrsesP2.y + 10, 25, RAYWHITE);
+            DrawText("2", (int)resusrsesP2.x + 20, (int)resusrsesP2.y + 10, 25, RAYWHITE);
             DrawRectangleRounded({ resusrsesP3 }, 0.1f, 10, eduTurquoise);
-            DrawText("3", resusrsesP3.x + 20, resusrsesP3.y + 10, 25, RAYWHITE);
+            DrawText("3", (int)resusrsesP3.x + 20, (int)resusrsesP3.y + 10, 25, RAYWHITE);
             DrawRectangleRounded({ resusrsesP4 }, 0.1f, 10, resursesColorP4);
-            DrawText("4", resusrsesP4.x + 20, resusrsesP4.y + 10, 25, RAYWHITE);
+            DrawText("4", (int)resusrsesP4.x + 20, (int)resusrsesP4.y + 10, 25, RAYWHITE);
             DrawRectangleRounded({ resusrsesP5 }, 0.1f, 10, resursesColorP5);
-            DrawText("5", resusrsesP5.x + 20, resusrsesP5.y + 10, 25, RAYWHITE);
+            DrawText("5", (int)resusrsesP5.x + 20, (int)resusrsesP5.y + 10, 25, RAYWHITE);
+
 			break;
 
-        case resursesTab4:
-            DrawText("Quadratic Equations", 20, 70, 70, eduTurquoise);
+        case resursesTab4: 
+            DrawText("HOMOGENEOUS EQUATIONS", 20, 70, 70, eduTurquoise);
             DrawRectangleRounded(backButtonRect, 0.3f, 10, backBtnColor);
             DrawRectangleRoundedLines(backButtonRect, 0.3f, 10, sectionOutlines);
             DrawTexture(texture, 1150, 10, WHITE);
             DrawText(" << Back", (int)(backButtonRect.x + 6.0f), (int)(backButtonRect.y + 13.0f), 25, RAYWHITE);
-            DrawRectangle(40.0f, (int)separationLineY, GetScreenWidth() - 80, 2, eduBlue);
+            DrawRectangle(40, (int)separationLineY, GetScreenWidth() - 80, 2, eduBlue);
             DrawRectangleRounded({ 40.0f, separationLineY + 30.0f, 1320.0f , mainSectionHeight }, 0.1f, 10, subSectionsBg);
+            DrawText("TOPIC: Equations with Constant Degree", 70, (int)separationLineY + 60, 35, eduBlue);
+            DrawText("Concept: Every term has the same total power. Solve by substitution.", 70, (int)separationLineY + 110, 22, RAYWHITE);
+            DrawText("Standard Form: ax^2 + bxy + cy^2 = 0", 70, (int)separationLineY + 145, 26, eduTurquoise);
+            DrawText("Method: Divide by y^2 and let u = x/y", 550, (int)separationLineY + 145, 26, eduTurquoise);
+            DrawText("Example 1: x^2 - 3xy + 2y^2 = 0", 70, (int)separationLineY + 210, 25, RAYWHITE);
+            DrawText("Divide by y^2 => u^2 - 3u + 2 = 0", 500, (int)separationLineY + 210, 25, eduOrange);
+            DrawText("Example 2: Solve for u (u = x/y)", 70, (int)separationLineY + 255, 25, RAYWHITE);
+            DrawText("u1 = 1, u2 = 2  =>  x = y, x = 2y", 500, (int)separationLineY + 255, 25, eduOrange);
+            DrawText("Example 3: 4x - 5y = 0", 70, (int)separationLineY + 300, 25, RAYWHITE);
+            DrawText("x/y = 5/4  =>  Linear Homogeneous", 500, (int)separationLineY + 300, 25, eduOrange);
+            DrawText("Tip: These equations describe lines passing through the origin (0,0).", 70, (int)separationLineY + 370, 22, eduTurquoise);
             DrawRectangleRounded({ resusrsesP1 }, 0.1f, 10, resursesColorP1);
-            DrawText("1", resusrsesP1.x + 20, resusrsesP1.y + 10, 25, RAYWHITE);
+            DrawText("1", (int)resusrsesP1.x + 20, (int)resusrsesP1.y + 10, 25, RAYWHITE);
             DrawRectangleRounded({ resusrsesP2 }, 0.1f, 10, resursesColorP2);
-            DrawText("2", resusrsesP2.x + 20, resusrsesP2.y + 10, 25, RAYWHITE);
+            DrawText("2", (int)resusrsesP2.x + 20, (int)resusrsesP2.y + 10, 25, RAYWHITE);
             DrawRectangleRounded({ resusrsesP3 }, 0.1f, 10, resursesColorP3);
-            DrawText("3", resusrsesP3.x + 20, resusrsesP3.y + 10, 25, RAYWHITE);
+            DrawText("3", (int)resusrsesP3.x + 20, (int)resusrsesP3.y + 10, 25, RAYWHITE);
             DrawRectangleRounded({ resusrsesP4 }, 0.1f, 10, eduTurquoise);
-            DrawText("4", resusrsesP4.x + 20, resusrsesP4.y + 10, 25, RAYWHITE);
+            DrawText("4", (int)resusrsesP4.x + 20, (int)resusrsesP4.y + 10, 25, RAYWHITE);
             DrawRectangleRounded({ resusrsesP5 }, 0.1f, 10, resursesColorP5);
-            DrawText("5", resusrsesP5.x + 20, resusrsesP5.y + 10, 25, RAYWHITE);
-			break;
+            DrawText("5", (int)resusrsesP5.x + 20, (int)resusrsesP5.y + 10, 25, RAYWHITE);
 
-        case resursesTab5:
-            DrawText("Quadratic Equations", 20, 70, 70, eduTurquoise);
+            break;
+
+        case resursesTab5: 
+            DrawText("MATH QUICK SUMMARY", 20, 70, 70, eduTurquoise);
             DrawRectangleRounded(backButtonRect, 0.3f, 10, backBtnColor);
             DrawRectangleRoundedLines(backButtonRect, 0.3f, 10, sectionOutlines);
             DrawTexture(texture, 1150, 10, WHITE);
             DrawText(" << Back", (int)(backButtonRect.x + 6.0f), (int)(backButtonRect.y + 13.0f), 25, RAYWHITE);
-            DrawRectangle(40.0f, (int)separationLineY, GetScreenWidth() - 80, 2, eduBlue);
+            DrawRectangle(40, (int)separationLineY, GetScreenWidth() - 80, 2, eduBlue);
             DrawRectangleRounded({ 40.0f, separationLineY + 30.0f, 1320.0f , mainSectionHeight }, 0.1f, 10, subSectionsBg);
+            DrawText("CHEAT SHEET: Essential Formulas", 70, (int)separationLineY + 60, 35, eduBlue);
+            DrawText("1. Linear & Product Type:", 70, (int)separationLineY + 120, 26, eduTurquoise);
+            DrawText("- ax + b = 0  =>  x = -b / a", 100, (int)separationLineY + 155, 24, RAYWHITE);
+            DrawText("- (ax+b)(cx+d) = 0  =>  Solve each factor for 0.", 100, (int)separationLineY + 185, 24, RAYWHITE);
+            DrawText("2. Quadratic Equations (ax^2 + bx + c = 0):", 70, (int)separationLineY + 230, 26, eduTurquoise);
+            DrawText("- Discriminant: D = b^2 - 4ac", 100, (int)separationLineY + 265, 24, RAYWHITE);
+            DrawText("- If D > 0: 2 Roots | If D = 0: 1 Root | If D < 0: No Real Roots", 100, (int)separationLineY + 295, 22, eduOrange);
+            DrawText("3. Homogeneous Type:", 70, (int)separationLineY + 340, 26, eduTurquoise);
+            DrawText("- ax^2 + bxy + cy^2 = 0  =>  Divide by y^2, substitute u = x/y.", 100, (int)separationLineY + 375, 24, RAYWHITE);
+            DrawText("Use these rules as a guide for your Practice and Homework sections!", 70, (int)separationLineY + 430, 20, eduTurquoise);
             DrawRectangleRounded({ resusrsesP1 }, 0.1f, 10, resursesColorP1);
-            DrawText("1", resusrsesP1.x + 20, resusrsesP1.y + 10, 25, RAYWHITE);
+            DrawText("1", (int)resusrsesP1.x + 20, (int)resusrsesP1.y + 10, 25, RAYWHITE);
             DrawRectangleRounded({ resusrsesP2 }, 0.1f, 10, resursesColorP2);
-            DrawText("2", resusrsesP2.x + 20, resusrsesP2.y + 10, 25, RAYWHITE);
+            DrawText("2", (int)resusrsesP2.x + 20, (int)resusrsesP2.y + 10, 25, RAYWHITE);
             DrawRectangleRounded({ resusrsesP3 }, 0.1f, 10, resursesColorP3);
-            DrawText("3", resusrsesP3.x + 20, resusrsesP3.y + 10, 25, RAYWHITE);
+            DrawText("3", (int)resusrsesP3.x + 20, (int)resusrsesP3.y + 10, 25, RAYWHITE);
             DrawRectangleRounded({ resusrsesP4 }, 0.1f, 10, resursesColorP4);
-            DrawText("4", resusrsesP4.x + 20, resusrsesP4.y + 10, 25, RAYWHITE);
+            DrawText("4", (int)resusrsesP4.x + 20, (int)resusrsesP4.y + 10, 25, RAYWHITE);
             DrawRectangleRounded({ resusrsesP5 }, 0.1f, 10, eduTurquoise);
-            DrawText("5", resusrsesP5.x + 20, resusrsesP5.y + 10, 25, RAYWHITE);
+            DrawText("5", (int)resusrsesP5.x + 20, (int)resusrsesP5.y + 10, 25, RAYWHITE);
             break;
 
         case exercises:
