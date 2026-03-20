@@ -154,15 +154,10 @@ int main() {
 
             if (CheckCollisionPointRec(mousePoint, backButtonRect)) {
                 if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
-                    currentPage = mathPage; // change the window to the math page
+                    currentPage = materials; // change the window to the math page
                 }
             }
 
-            if (CheckCollisionPointRec(mousePoint, resusrsesP1)) {
-                if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
-                    currentPage = resursesTab1; // change the window to the math page
-                }
-            }
             if (CheckCollisionPointRec(mousePoint, resusrsesP2)) {
                 if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
                     currentPage = resursesTab2; // change the window to the math page
@@ -185,7 +180,159 @@ int main() {
 
             }
         }
-                         break;
+        break;
+        
+        case resursesTab2: {
+
+            if (CheckCollisionPointRec(mousePoint, backButtonRect)) {
+                if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
+                    currentPage = materials; // change the window to the math page
+                }
+            }
+
+            if (CheckCollisionPointRec(mousePoint, resusrsesP1)) {
+                if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
+                    currentPage = resursesTab1; // change the window to the math page
+                }
+            }
+
+            if (CheckCollisionPointRec(mousePoint, resusrsesP2)) {
+                if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
+                    currentPage = resursesTab2; // change the window to the math page
+                }
+            }
+            if (CheckCollisionPointRec(mousePoint, resusrsesP3)) {
+                if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
+                    currentPage = resursesTab3; // change the window to the math page
+                }
+            }
+            if (CheckCollisionPointRec(mousePoint, resusrsesP4)) {
+                if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
+                    currentPage = resursesTab4; // change the window to the math page
+                }
+            }
+            if (CheckCollisionPointRec(mousePoint, resusrsesP5)) {
+                if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
+                    currentPage = resursesTab5; // change the window to the math page
+                }
+
+            }
+        }
+        break;
+
+        case resursesTab3: {
+
+            if (CheckCollisionPointRec(mousePoint, backButtonRect)) {
+                if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
+                    currentPage = materials; // change the window to the math page
+                }
+            }
+
+            if (CheckCollisionPointRec(mousePoint, resusrsesP1)) {
+                if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
+                    currentPage = resursesTab1; // change the window to the math page
+                }
+            }
+
+            if (CheckCollisionPointRec(mousePoint, resusrsesP2)) {
+                if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
+                    currentPage = resursesTab2; // change the window to the math page
+                }
+            }
+            if (CheckCollisionPointRec(mousePoint, resusrsesP3)) {
+                if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
+                    currentPage = resursesTab3; // change the window to the math page
+                }
+            }
+            if (CheckCollisionPointRec(mousePoint, resusrsesP4)) {
+                if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
+                    currentPage = resursesTab4; // change the window to the math page
+                }
+            }
+            if (CheckCollisionPointRec(mousePoint, resusrsesP5)) {
+                if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
+                    currentPage = resursesTab5; // change the window to the math page
+                }
+
+            }
+        }
+        break;
+
+        case resursesTab4: {
+
+            if (CheckCollisionPointRec(mousePoint, backButtonRect)) {
+                if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
+                    currentPage = materials; // change the window to the math page
+                }
+            }
+
+            if (CheckCollisionPointRec(mousePoint, resusrsesP1)) {
+                if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
+                    currentPage = resursesTab1; // change the window to the math page
+                }
+            }
+
+            if (CheckCollisionPointRec(mousePoint, resusrsesP2)) {
+                if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
+                    currentPage = resursesTab2; // change the window to the math page
+                }
+            }
+            if (CheckCollisionPointRec(mousePoint, resusrsesP3)) {
+                if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
+                    currentPage = resursesTab3; // change the window to the math page
+                }
+            }
+            if (CheckCollisionPointRec(mousePoint, resusrsesP4)) {
+                if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
+                    currentPage = resursesTab4; // change the window to the math page
+                }
+            }
+            if (CheckCollisionPointRec(mousePoint, resusrsesP5)) {
+                if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
+                    currentPage = resursesTab5; // change the window to the math page
+                }
+
+            }
+        }
+        break;
+
+        case resursesTab5: {
+
+            if (CheckCollisionPointRec(mousePoint, backButtonRect)) {
+                if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
+                    currentPage = materials; // change the window to the math page
+                }
+            }
+
+            if (CheckCollisionPointRec(mousePoint, resusrsesP1)) {
+                if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
+                    currentPage = resursesTab1; // change the window to the math page
+                }
+            }
+
+            if (CheckCollisionPointRec(mousePoint, resusrsesP2)) {
+                if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
+                    currentPage = resursesTab2; // change the window to the math page
+                }
+            }
+            if (CheckCollisionPointRec(mousePoint, resusrsesP3)) {
+                if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
+                    currentPage = resursesTab3; // change the window to the math page
+                }
+            }
+            if (CheckCollisionPointRec(mousePoint, resusrsesP4)) {
+                if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
+                    currentPage = resursesTab4; // change the window to the math page
+                }
+            }
+            if (CheckCollisionPointRec(mousePoint, resusrsesP5)) {
+                if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT)) {
+                    currentPage = resursesTab5; // change the window to the math page
+                }
+
+            }
+        }
+        break;
 
         case  exercises: {
 
@@ -200,7 +347,9 @@ int main() {
                 }
             }
         }
-                       break;
+        break;
+
+
 
         case exPractice: {
             if (CheckCollisionPointRec(mousePoint, backButtonRect)) {
@@ -317,28 +466,103 @@ int main() {
             break;
 
         case materials:
-            DrawText("Maths Materials & Lessons", 20, 70, 70, eduTurquoise);
+            DrawText("LEARNING RESOURCES", 20, 70, 70, eduTurquoise);
             DrawRectangleRounded(backButtonRect, 0.3f, 10, backBtnColor);
             DrawRectangleRoundedLines(backButtonRect, 0.3f, 10, sectionOutlines);
             DrawTexture(texture, 1150, 10, WHITE);
             DrawText(" << Back", (int)(backButtonRect.x + 6.0f), (int)(backButtonRect.y + 13.0f), 25, RAYWHITE);
-            DrawRectangleRounded({ resusrsesP1 }, 0.1f, 10, resursesColorP1);
-            DrawRectangleRounded({ resusrsesP1 }, 0.1f, 10, resursesColorP1);
-            DrawText("1", resusrsesP1.x + 20, resusrsesP1.y + 10, 25, RAYWHITE);
-            DrawRectangleRounded({ resusrsesP2 }, 0.1f, 10, resursesColorP2);
-            DrawText("2", resusrsesP2.x + 20, resusrsesP2.y + 10, 25, RAYWHITE);
-            DrawRectangleRounded({ resusrsesP3 }, 0.1f, 10, resursesColorP3);
-            DrawText("3", resusrsesP3.x + 20, resusrsesP3.y + 10, 25, RAYWHITE);
-            DrawRectangleRounded({ resusrsesP4 }, 0.1f, 10, resursesColorP4);
-            DrawText("4", resusrsesP4.x + 20, resusrsesP4.y + 10, 25, RAYWHITE);
-            DrawRectangleRounded({ resusrsesP5 }, 0.1f, 10, resursesColorP5);
-            DrawText("5", resusrsesP5.x + 20, resusrsesP5.y + 10, 25, RAYWHITE);
-            DrawRectangleRounded({ 40.0f, separationLineY + 30.0f, 1320.0f , mainSectionHeight }, 0.2f, 10, subSectionsBg);
             DrawRectangle(40, (int)separationLineY, GetScreenWidth() - 80, 2, eduBlue);
+            DrawRectangleRounded({ 40.0f, separationLineY + 30.0f, 1320.0f, mainSectionHeight }, 0.1f, 10, subSectionsBg);
+            DrawText("Study Material Navigation Guide", 50, (int)(separationLineY + 50.0f), 30, eduBlue);
+            DrawText("Select a numbered tab below to access theory and examples:", 50, (int)(separationLineY + 90.0f), 24, RAYWHITE);
+            DrawText("Tab 1: Product Equations", 100, (int)(separationLineY + 150.0f), 25, eduOrange);
+            DrawText("- Learn how to solve (ax + b)(cx + d) = 0 using zero-product property.", 450, (int)(separationLineY + 150.0f), 22, RAYWHITE);
+            DrawText("Tab 2: Linear Equations", 100, (int)(separationLineY + 190.0f), 25, eduOrange);
+            DrawText("- Basic rules and steps for solving first-degree equations.", 450, (int)(separationLineY + 190.0f), 22, RAYWHITE);
+            DrawText("Tab 3: Quadratic Equations", 100, (int)(separationLineY + 230.0f), 25, eduOrange);
+            DrawText("- Comprehensive guide for ax^2 + bx + c = 0 solving methods.", 450, (int)(separationLineY + 230.0f), 22, RAYWHITE);
+            DrawText("Tab 4: Homogeneous", 100, (int)(separationLineY + 270.0f), 25, eduOrange);
+            DrawText("- Deep dive into advanced same-degree polynomial equations.", 450, (int)(separationLineY + 270.0f), 22, RAYWHITE);
+            DrawText("Tab 5: Quick Summary", 100, (int)(separationLineY + 310.0f), 25, eduOrange);
+            DrawText("- Formulas, cheat sheets, and essential math properties.", 450, (int)(separationLineY + 310.0f), 22, RAYWHITE);
+            DrawText("Tip: Review each section carefully before starting your homework!", 50, (int)(separationLineY + 380.0f), 20, eduTurquoise);
+            DrawRectangleRounded({ resusrsesP1 }, 0.1f, 10, resursesColorP1);
+            DrawText("1", (int)resusrsesP1.x + 20, (int)resusrsesP1.y + 10, 25, RAYWHITE);
+            DrawRectangleRounded({ resusrsesP2 }, 0.1f, 10, resursesColorP2);
+            DrawText("2", (int)resusrsesP2.x + 20, (int)resusrsesP2.y + 10, 25, RAYWHITE);
+            DrawRectangleRounded({ resusrsesP3 }, 0.1f, 10, resursesColorP3);
+            DrawText("3", (int)resusrsesP3.x + 20, (int)resusrsesP3.y + 10, 25, RAYWHITE);
+            DrawRectangleRounded({ resusrsesP4 }, 0.1f, 10, resursesColorP4);
+            DrawText("4", (int)resusrsesP4.x + 20, (int)resusrsesP4.y + 10, 25, RAYWHITE);
+            DrawRectangleRounded({ resusrsesP5 }, 0.1f, 10, resursesColorP5);
+            DrawText("5", (int)resusrsesP5.x + 20, (int)resusrsesP5.y + 10, 25, RAYWHITE);
             break;
 
         case resursesTab1:
-            DrawText("(ax+b)(cx+d)=0 ", 20, 70, 70, eduBlue);
+            DrawText("(ax+b)(cx+d)=0 ", 20, 70, 70, eduTurquoise);
+            DrawRectangleRounded(backButtonRect, 0.3f, 10, backBtnColor);
+            DrawRectangleRoundedLines(backButtonRect, 0.3f, 10, sectionOutlines);
+            DrawTexture(texture, 1150, 10, WHITE);
+            DrawText(" << Back", (int)(backButtonRect.x + 6.0f), (int)(backButtonRect.y + 13.0f), 25, RAYWHITE);
+            DrawRectangle(40.0f, (int)separationLineY, GetScreenWidth() - 80, 2, eduBlue);
+            DrawRectangleRounded({ 40.0f, separationLineY + 30.0f, 1320.0f , mainSectionHeight }, 0.1f, 10, subSectionsBg);
+            DrawText("TOPIC: Zero-Product Property", 70, (int)separationLineY + 60, 35, eduBlue);
+            DrawText("Concept: If the product of two factors is 0, at least one must be 0.", 70, (int)separationLineY + 110, 22, eduTurquoise);
+            DrawText("Formula: (ax + b) = 0  OR  (cx + d) = 0", 70, (int)separationLineY + 140, 24, RAYWHITE);
+            DrawText("Example 1: (x - 5)(x + 3) = 0", 70, (int)separationLineY + 200, 24, RAYWHITE);
+            DrawText("Solution: x1 = 5, x2 = -3", 450, (int)separationLineY + 200, 24, eduOrange);
+            DrawText("Example 2: (2x - 8)(5x + 10) = 0", 70, (int)separationLineY + 240, 24, RAYWHITE);
+            DrawText("Solution: x1 = 4, x2 = -2", 450, (int)separationLineY + 240, 24, eduOrange);
+            DrawText("Example 3: (4x - 1)(x - 0.5) = 0", 70, (int)separationLineY + 280, 24, RAYWHITE);
+            DrawText("Solution: x1 = 0.25, x2 = 0.5", 450, (int)separationLineY + 280, 24, eduOrange);
+            DrawRectangleRounded({ resusrsesP1 }, 0.1f, 10, eduTurquoise);
+            DrawText("1", (int)resusrsesP1.x + 20, (int)resusrsesP1.y + 10, 25, RAYWHITE);
+            DrawRectangleRounded({ resusrsesP2 }, 0.1f, 10, resursesColorP2);
+            DrawText("2", (int)resusrsesP2.x + 20, (int)resusrsesP2.y + 10, 25, RAYWHITE);
+            DrawRectangleRounded({ resusrsesP3 }, 0.1f, 10, resursesColorP3);
+            DrawText("3", (int)resusrsesP3.x + 20, (int)resusrsesP3.y + 10, 25, RAYWHITE);
+            DrawRectangleRounded({ resusrsesP4 }, 0.1f, 10, resursesColorP4);
+            DrawText("4", (int)resusrsesP4.x + 20, (int)resusrsesP4.y + 10, 25, RAYWHITE);
+            DrawRectangleRounded({ resusrsesP5 }, 0.1f, 10, resursesColorP5);
+            DrawText("5", (int)resusrsesP5.x + 20, (int)resusrsesP5.y + 10, 25, RAYWHITE);
+
+            break;
+
+
+        case resursesTab2:
+            DrawText("LINEAR EQUATIONS", 20, 70, 70, eduTurquoise);
+            DrawRectangleRounded(backButtonRect, 0.3f, 10, backBtnColor);
+            DrawRectangleRoundedLines(backButtonRect, 0.3f, 10, sectionOutlines);
+            DrawTexture(texture, 1150, 10, WHITE);
+            DrawText(" << Back", (int)(backButtonRect.x + 6.0f), (int)(backButtonRect.y + 13.0f), 25, RAYWHITE);
+            DrawRectangle(40, (int)separationLineY, GetScreenWidth() - 80, 2, eduBlue);
+            DrawRectangleRounded({ 40.0f, separationLineY + 30.0f, 1320.0f , mainSectionHeight }, 0.1f, 10, subSectionsBg);
+            DrawText("TOPIC: Solving First-Degree Equations", 70, (int)separationLineY + 60, 35, eduBlue);
+            DrawText("Concept: Move variables to one side and constants to the other.", 70, (int)separationLineY + 110, 22, RAYWHITE);
+            DrawText("General Form: ax + b = 0  =>  x = -b / a", 70, (int)separationLineY + 140, 24, eduTurquoise);
+            DrawText("Example 1: 3x - 12 = 0", 70, (int)separationLineY + 200, 25, RAYWHITE);
+            DrawText("Solution: 3x = 12  =>  x = 4", 450, (int)separationLineY + 200, 25, eduOrange);
+            DrawText("Example 2: 5x + 10 = 2x + 25", 70, (int)separationLineY + 245, 25, RAYWHITE);
+            DrawText("Solution: 3x = 15  =>  x = 5", 450, (int)separationLineY + 245, 25, eduOrange);
+            DrawText("Example 3: 2(x - 3) = 10", 70, (int)separationLineY + 290, 25, RAYWHITE);
+            DrawText("Solution: 2x - 6 = 10 => 2x = 16 => x = 8", 450, (int)separationLineY + 290, 25, eduOrange);
+            DrawText("Remember: Change the sign (+ or -) when moving terms across the '=' sign!", 70, (int)separationLineY + 360, 20, eduTurquoise);
+            DrawRectangleRounded({ resusrsesP1 }, 0.1f, 10, resursesColorP1);
+            DrawText("1", (int)resusrsesP1.x + 20, (int)resusrsesP1.y + 10, 25, RAYWHITE);
+            DrawRectangleRounded({ resusrsesP2 }, 0.1f, 10, eduTurquoise);
+            DrawText("2", (int)resusrsesP2.x + 20, (int)resusrsesP2.y + 10, 25, RAYWHITE);
+            DrawRectangleRounded({ resusrsesP3 }, 0.1f, 10, resursesColorP3);
+            DrawText("3", (int)resusrsesP3.x + 20, (int)resusrsesP3.y + 10, 25, RAYWHITE);
+            DrawRectangleRounded({ resusrsesP4 }, 0.1f, 10, resursesColorP4);
+            DrawText("4", (int)resusrsesP4.x + 20, (int)resusrsesP4.y + 10, 25, RAYWHITE);
+            DrawRectangleRounded({ resusrsesP5 }, 0.1f, 10, resursesColorP5);
+            DrawText("5", (int)resusrsesP5.x + 20, (int)resusrsesP5.y + 10, 25, RAYWHITE);
+
+            break;
+
+
+        case resursesTab3:
+            DrawText("Quadratic Equations", 20, 70, 70, eduTurquoise);
             DrawRectangleRounded(backButtonRect, 0.3f, 10, backBtnColor);
             DrawRectangleRoundedLines(backButtonRect, 0.3f, 10, sectionOutlines);
             DrawTexture(texture, 1150, 10, WHITE);
@@ -346,6 +570,45 @@ int main() {
             DrawRectangle(40.0f, (int)separationLineY, GetScreenWidth() - 80, 2, eduBlue);
             DrawRectangleRounded({ 40.0f, separationLineY + 30.0f, 1320.0f , mainSectionHeight }, 0.1f, 10, subSectionsBg);
             DrawRectangleRounded({ resusrsesP1 }, 0.1f, 10, resursesColorP1);
+            DrawText("1", resusrsesP1.x + 20, resusrsesP1.y + 10, 25, RAYWHITE);
+            DrawRectangleRounded({ resusrsesP2 }, 0.1f, 10, resursesColorP2);
+            DrawText("2", resusrsesP2.x + 20, resusrsesP2.y + 10, 25, RAYWHITE);
+            DrawRectangleRounded({ resusrsesP3 }, 0.1f, 10, eduTurquoise);
+            DrawText("3", resusrsesP3.x + 20, resusrsesP3.y + 10, 25, RAYWHITE);
+            DrawRectangleRounded({ resusrsesP4 }, 0.1f, 10, resursesColorP4);
+            DrawText("4", resusrsesP4.x + 20, resusrsesP4.y + 10, 25, RAYWHITE);
+            DrawRectangleRounded({ resusrsesP5 }, 0.1f, 10, resursesColorP5);
+            DrawText("5", resusrsesP5.x + 20, resusrsesP5.y + 10, 25, RAYWHITE);
+			break;
+
+        case resursesTab4:
+            DrawText("Quadratic Equations", 20, 70, 70, eduTurquoise);
+            DrawRectangleRounded(backButtonRect, 0.3f, 10, backBtnColor);
+            DrawRectangleRoundedLines(backButtonRect, 0.3f, 10, sectionOutlines);
+            DrawTexture(texture, 1150, 10, WHITE);
+            DrawText(" << Back", (int)(backButtonRect.x + 6.0f), (int)(backButtonRect.y + 13.0f), 25, RAYWHITE);
+            DrawRectangle(40.0f, (int)separationLineY, GetScreenWidth() - 80, 2, eduBlue);
+            DrawRectangleRounded({ 40.0f, separationLineY + 30.0f, 1320.0f , mainSectionHeight }, 0.1f, 10, subSectionsBg);
+            DrawRectangleRounded({ resusrsesP1 }, 0.1f, 10, resursesColorP1);
+            DrawText("1", resusrsesP1.x + 20, resusrsesP1.y + 10, 25, RAYWHITE);
+            DrawRectangleRounded({ resusrsesP2 }, 0.1f, 10, resursesColorP2);
+            DrawText("2", resusrsesP2.x + 20, resusrsesP2.y + 10, 25, RAYWHITE);
+            DrawRectangleRounded({ resusrsesP3 }, 0.1f, 10, resursesColorP3);
+            DrawText("3", resusrsesP3.x + 20, resusrsesP3.y + 10, 25, RAYWHITE);
+            DrawRectangleRounded({ resusrsesP4 }, 0.1f, 10, eduTurquoise);
+            DrawText("4", resusrsesP4.x + 20, resusrsesP4.y + 10, 25, RAYWHITE);
+            DrawRectangleRounded({ resusrsesP5 }, 0.1f, 10, resursesColorP5);
+            DrawText("5", resusrsesP5.x + 20, resusrsesP5.y + 10, 25, RAYWHITE);
+			break;
+
+        case resursesTab5:
+            DrawText("Quadratic Equations", 20, 70, 70, eduTurquoise);
+            DrawRectangleRounded(backButtonRect, 0.3f, 10, backBtnColor);
+            DrawRectangleRoundedLines(backButtonRect, 0.3f, 10, sectionOutlines);
+            DrawTexture(texture, 1150, 10, WHITE);
+            DrawText(" << Back", (int)(backButtonRect.x + 6.0f), (int)(backButtonRect.y + 13.0f), 25, RAYWHITE);
+            DrawRectangle(40.0f, (int)separationLineY, GetScreenWidth() - 80, 2, eduBlue);
+            DrawRectangleRounded({ 40.0f, separationLineY + 30.0f, 1320.0f , mainSectionHeight }, 0.1f, 10, subSectionsBg);
             DrawRectangleRounded({ resusrsesP1 }, 0.1f, 10, resursesColorP1);
             DrawText("1", resusrsesP1.x + 20, resusrsesP1.y + 10, 25, RAYWHITE);
             DrawRectangleRounded({ resusrsesP2 }, 0.1f, 10, resursesColorP2);
@@ -354,7 +617,7 @@ int main() {
             DrawText("3", resusrsesP3.x + 20, resusrsesP3.y + 10, 25, RAYWHITE);
             DrawRectangleRounded({ resusrsesP4 }, 0.1f, 10, resursesColorP4);
             DrawText("4", resusrsesP4.x + 20, resusrsesP4.y + 10, 25, RAYWHITE);
-            DrawRectangleRounded({ resusrsesP5 }, 0.1f, 10, resursesColorP5);
+            DrawRectangleRounded({ resusrsesP5 }, 0.1f, 10, eduTurquoise);
             DrawText("5", resusrsesP5.x + 20, resusrsesP5.y + 10, 25, RAYWHITE);
             break;
 
