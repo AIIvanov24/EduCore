@@ -1,13 +1,20 @@
 # Build output
-Debug/
-Release/
 x64/
 x86/
+Debug/
+Release/
 
-# VS files
+# Visual Studio
 .vs/
 *.user
 *.suo
+*.ilk
+*.idb
+*.pdb
+*.log
+*.tlog
+*.recipe
+*.lastbuildstate
 
-# NuGet packages (restored automatically)
+# NuGet
 packages/
