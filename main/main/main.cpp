@@ -1,174 +1,38 @@
-#include "raylib.h"
-#include <cstdlib>
-#include <ctime>
-#include <cstdio>
+#include "header.h"
 
 int main() {
     InitWindow(1400, 800, "EduCore Education");
     SetTargetFPS(60);
-    srand((unsigned int)time(nullptr)); // seed for random question selection
+    srand((unsigned int)time(nullptr)); // Seed за рандом въпросите
 
-    enum appState {
-        homePage, mathPage, exercises, test, testResults, materials,
-        resursesTab1, resursesTab2, resursesTab3, resursesTab4, resursesTab5, exPractice,
-        gradebookPage
-    };
-    appState currentPage = homePage;
-
-    Color eduBlue = { 0,   160, 233, 255 };
-    Color eduOrange = { 252, 176, 33,  255 };
-    Color mainBackground = { 10,  14,  20,  255 };
-    Color subSectionsBg = { 20,  30,  45,  255 };
-    Color sectionOutlines = { 7,  112, 182,  255 };
-    Color eduTurquoise = { 0,   120, 130, 255 };
-    Color eduGreen = { 46,  204, 113, 255 };
-    Color eduRed = { 231, 76,  60,  255 };
-
-    float spacing = 20.0f;
-    float separationLineY = 220.0f;
-    float mainSectionHeight = (float)GetScreenHeight() - separationLineY - spacing * 2.0f;
-    float mainSectionY = separationLineY + spacing;
+    // 2. ИЗЧИСЛЕНИЯ НА КООРДИНАТИ (След като прозорецът е отворен)
+    // Тези стойности отиват в променливите от variables.cpp
+    mainSectionHeight = (float)GetScreenHeight() - separationLineY - spacing * 2.0f;
+    mainSectionY = separationLineY + spacing;
 
     int subjectTextWidth = MeasureText("Please choose a subject", 30);
-    float centerX = 40.0f + (1320.0f / 2.0f) - (subjectTextWidth / 2.0f);
+    centerX = 40.0f + (1320.0f / 2.0f) - (subjectTextWidth / 2.0f);
 
-    Rectangle backButtonRect = { 20.0f,  10.0f,  120.0f, 50.0f };
-    Rectangle exitButtonRect = { 1260.0f, 10.0f, 120.0f, 50.0f };
-    Rectangle subMathSection = { 74.0f,  mainSectionY + 5.0f * spacing, 390.0f, 290.0f };
-    Rectangle subMathSectionHw = { subMathSection.x + 390.0f + spacing * 2.0f, subMathSection.y, subMathSection.width, subMathSection.height };
-    Rectangle subMathSectionTest = { subMathSection.x + 390.0f * 2.0f + spacing * 4.0f, subMathSection.y, subMathSection.width, subMathSection.height };
-    Rectangle subMathSectionLabel = { subMathSection.x - 2.0f, subMathSection.y - 1.0f, subMathSection.width + 3.0f, 40.0f };
-    Rectangle mathSection = { 80.0f,  mainSectionY + 5.0f * spacing, 1320.0f - 80.0f, 200.0f };
-    Rectangle resusrsesP1 = { 480.0f, 160.0f, 50.0f, 45.0f };
-    Rectangle resusrsesP2 = { 540.0f, 160.0f, 50.0f, 45.0f };
-    Rectangle resusrsesP3 = { 600.0f, 160.0f, 50.0f, 45.0f };
-    Rectangle resusrsesP4 = { 660.0f, 160.0f, 50.0f, 45.0f };
-    Rectangle resusrsesP5 = { 720.0f, 160.0f, 50.0f, 45.0f };
-    Rectangle hwPracticeRect = { 70.0f,  160.0f, 200.0f, 45.0f };
-    Rectangle exPracticeRect = { 280.0f, 160.0f, 200.0f, 45.0f };
+    // Инициализация на правоъгълниците (Rectangles)
+    subMathSection = { 74.0f, mainSectionY + 5.0f * spacing, 390.0f, 290.0f };
+    subMathSectionHw = { subMathSection.x + 390.0f + spacing * 2.0f, subMathSection.y, subMathSection.width, subMathSection.height };
+    subMathSectionTest = { subMathSection.x + 390.0f * 2.0f + spacing * 4.0f, subMathSection.y, subMathSection.width, subMathSection.height };
+    subMathSectionLabel = { subMathSection.x - 2.0f, subMathSection.y - 1.0f, subMathSection.width + 3.0f, 40.0f };
 
-    float labelHeight = 40.0f;
-    Rectangle labelRect = { mathSection.x - 2.0f, mathSection.y - 1.0f, mathSection.width + 3.0f, labelHeight };
+    mathSection = { 80.0f, mainSectionY + 5.0f * spacing, 1320.0f - 80.0f, 200.0f };
+    labelRect = { mathSection.x - 2.0f, mathSection.y - 1.0f, mathSection.width + 3.0f, labelHeight };
+    gradebookBtn = { 80.0f, mainSectionY + 5.0f * spacing + 200.0f + 20.0f, 400.0f, 55.0f };
 
-    // Gradebook button — sits below the Maths subject card
-    Rectangle gradebookBtn = { 80.0f, mainSectionY + 5.0f * spacing + 200.0f + 20.0f, 400.0f, 55.0f };
+    // 3. ЗАРЕЖДАНЕ НА ТЕКСТУРИ
+    Image logoImg = LoadImage("eduCoreLogo.png");
+    if (logoImg.data != nullptr) {
+        ImageResize(&logoImg, 200, 200);
+        texture = LoadTextureFromImage(logoImg);
+        UnloadImage(logoImg);
+    }
 
-    // ─────────────────────────────────────────────
-    //  GRADEBOOK DATA
-    // ─────────────────────────────────────────────
-    static const int MAX_RESULTS = 20;
-    struct TestResult {
-        int score;
-        int total;
-        float grade;    // 2.00 – 6.00
-        float pct;      // 0 – 100
-        char date[16];  // "DD/MM/YYYY"
-    };
-    TestResult gradebook[MAX_RESULTS];
-    int gradebookCount = 0;
-
-    // Helper: get today's date string
-    auto getDateStr = [](char* buf) {
-        time_t now = time(nullptr);
-        struct tm t;
-#ifdef _WIN32
-        localtime_s(&t, &now);
-#else
-        localtime_r(&now, &t);
-#endif
-        snprintf(buf, 16, "%02d/%02d/%04d", t.tm_mday, t.tm_mon + 1, t.tm_year + 1900);
-        };
-
-    Image image = LoadImage("eduCoreLogo.png");
-    ImageResize(&image, 200, 200);
-    Texture2D texture = LoadTextureFromImage(image);
-    UnloadImage(image);
-
-    // ─────────────────────────────────────────────
-    //  QUESTION STRUCT
-    // ─────────────────────────────────────────────
-    struct Question {
-        const char* text;
-        const char* answers[3]; // A, B, C
-        int correct;            // 0, 1 or 2
-    };
-
-    // ─────────────────────────────────────────────
-    //  PRACTICE QUIZ (10 questions, unchanged)
-    // ─────────────────────────────────────────────
-    Question practiceQuiz[10] = {
-        {"Solve: (x - 3)(x + 2) = 0",          {"x=3, x=-2",    "x=-3, x=2",   "x=1"       }, 0},
-        {"Solve: 2x + 10 = 3x - 5",             {"x=5",          "x=15",        "x=-15"     }, 1},
-        {"Roots of: x^2 - 7x + 10 = 0",        {"x=2, x=5",     "x=-2, x=-5",  "x=3, x=4" }, 0},
-        {"Solve: 3(x - 4) = 0",                 {"x=0",          "x=-4",        "x=4"       }, 2},
-        {"Solve: x^2 - 9 = 0",                  {"x=3",          "x=+-3",       "x=9"       }, 1},
-        {"Solve: x^2 - 4xy + 4y^2 = 0",        {"x=2y",         "x=y",         "x=4y"      }, 0},
-        {"Solve: 4x - 12 = 2x + 6",             {"x=6",          "x=12",        "x=9"       }, 2},
-        {"Discriminant of: x^2 + 4x + 4 = 0",  {"D=16",         "D=0",         "D=8"       }, 1},
-        {"Solve: x^2 + xy - 6y^2 = 0",         {"x=2y, x=-3y",  "x=y, x=6y",   "x=3y, x=-2y"}, 0},
-        {"Solve: x^2 - xy = 0",                 {"x=1",          "x=0, y",      "x=0, x=y" }, 2},
-    };
-
-    int currentQ = 0;
-    int selectedAns = -1;
-
-    // ─────────────────────────────────────────────
-    //  TEST BANK — 30 questions
-    // ─────────────────────────────────────────────
-    static const int BANK_SIZE = 30;
-    static const int TEST_SIZE = 20;
-
-    Question testBank[BANK_SIZE] = {
-        // Linear equations (0-7)
-        {"Solve: 3x - 9 = 0",                       {"x=3",          "x=-3",        "x=9"        }, 0},
-        {"Solve: 5x + 15 = 0",                       {"x=3",          "x=-3",        "x=5"        }, 1},
-        {"Solve: 2x + 10 = 3x - 5",                  {"x=5",          "x=15",        "x=-5"       }, 1},
-        {"Solve: 7x - 14 = 0",                       {"x=14",         "x=2",         "x=-2"       }, 1},
-        {"Solve: 4(x - 3) = 8",                      {"x=5",          "x=3",         "x=2"        }, 0},
-        {"Solve: 6x + 3 = 3x + 12",                  {"x=2",          "x=3",         "x=5"        }, 1},
-        {"Solve: 2(x + 5) = 3x - 1",                 {"x=11",         "x=-11",       "x=9"        }, 0},
-        {"Solve: 10x - 20 = 5x + 5",                 {"x=5",          "x=3",         "x=1"        }, 0},
-        // Product of linear factors (8-13)
-        {"Solve: (x - 5)(x + 3) = 0",                {"x=5, x=-3",    "x=-5, x=3",   "x=5, x=3"  }, 0},
-        {"Solve: (2x - 8)(x + 7) = 0",               {"x=4, x=-7",    "x=-4, x=7",   "x=8, x=-7" }, 0},
-        {"Solve: (3x - 9)(x - 4) = 0",               {"x=3, x=4",     "x=-3, x=4",   "x=9, x=4"  }, 0},
-        {"Solve: (x + 6)(x - 6) = 0",                {"x=6",          "x=+-6",       "x=-6"       }, 1},
-        {"Solve: (x - 1)(x - 2)(x - 3) = 0",        {"x=1, 2, 3",    "x=-1,-2,-3",  "x=0, 1, 2" }, 0},
-        {"Solve: (4x + 8)(x - 0.5) = 0",             {"x=-2, x=0.5",  "x=2, x=-0.5", "x=-8, x=2" }, 0},
-        // Quadratic equations (14-21)
-        {"Roots of: x^2 - 5x + 6 = 0",              {"x=2, x=3",     "x=-2, x=-3",  "x=1, x=6"  }, 0},
-        {"Roots of: x^2 + 2x - 8 = 0",              {"x=2, x=-4",    "x=-2, x=4",   "x=4, x=-2" }, 0},
-        {"Discriminant of: x^2 - 4x + 4 = 0",       {"D=8",          "D=0",         "D=4"        }, 1},
-        {"Discriminant of: x^2 + x + 1 = 0",        {"D=-3",         "D=3",         "D=5"        }, 0},
-        {"Roots of: x^2 - 9 = 0",                   {"x=3",          "x=+-3",       "x=9"        }, 1},
-        {"Roots of: 2x^2 - 8x + 6 = 0",             {"x=1, x=3",     "x=-1, x=-3",  "x=2, x=4"  }, 0},
-        {"How many real roots: x^2 + 4x + 5 = 0?",  {"0 roots",      "1 root",      "2 roots"    }, 0},
-        {"Roots of: x^2 - 7x + 10 = 0",             {"x=2, x=5",     "x=-2, x=-5",  "x=3, x=4"  }, 0},
-        // Homogeneous equations (22-29)
-        {"Solve: x^2 - 4xy + 4y^2 = 0",             {"x=2y",         "x=4y",        "x=y"        }, 0},
-        {"Solve: x^2 + xy - 6y^2 = 0",              {"x=2y, x=-3y",  "x=3y, x=-2y", "x=y, x=6y" }, 0},
-        {"Solve: x^2 - xy = 0",                      {"x=0, x=y",     "x=0",         "x=y"        }, 0},
-        {"Solve: 2x^2 - 5xy + 2y^2 = 0",            {"x=2y, x=0.5y", "x=y, x=2y",   "x=5y, x=2y"}, 0},
-        {"Solve: x^2 - 3xy + 2y^2 = 0",             {"x=y, x=2y",    "x=-y, x=-2y", "x=3y, x=y" }, 0},
-        {"Solve: x^2 + 2xy + y^2 = 0",              {"x=-y",         "x=y",         "x=2y"       }, 0},
-        {"Solve: 3x^2 - 4xy + y^2 = 0",             {"x=y, x=y/3",   "x=4y, x=y",   "x=y, x=3y" }, 0},
-        {"Solve: x^2 - 2xy + y^2 = 0",              {"x=y",          "x=-y",        "x=2y"       }, 0},
-    };
-
-    // ─────────────────────────────────────────────
-    //  TEST STATE
-    // ─────────────────────────────────────────────
-    int testOrder[TEST_SIZE];
-    int testCurrentQ = 0;
-    int testSelectedAns = -1;
-    int testScore = 0;
-    bool testAnswered = false;
-
-    // Per-question shuffled answer order and where the correct answer landed
-    int answerOrder[TEST_SIZE][3];   // answerOrder[q][0..2] = original indices after shuffle
-    int shuffledCorrect[TEST_SIZE];  // which slot (0,1,2) holds the correct answer for each q
-
-    // Fisher-Yates shuffle: pick TEST_SIZE unique questions from the bank
+    // 4. ФУНКЦИЯ ЗА РАЗБЪРКВАНЕ (Shuffle)
+    // Дефинираме я като ламбда за лесен достъп
     auto shuffleTest = [&]() {
         int pool[BANK_SIZE];
         for (int i = 0; i < BANK_SIZE; i++) pool[i] = i;
@@ -178,26 +42,19 @@ int main() {
         }
         for (int i = 0; i < TEST_SIZE; i++) testOrder[i] = pool[i];
 
-        // For each selected question, shuffle its 3 answer slots
         for (int i = 0; i < TEST_SIZE; i++) {
             int orig = testBank[testOrder[i]].correct;
-            // Start with identity permutation
-            answerOrder[i][0] = 0;
-            answerOrder[i][1] = 1;
-            answerOrder[i][2] = 2;
-            // Fisher-Yates on 3 elements
+            answerOrder[i][0] = 0; answerOrder[i][1] = 1; answerOrder[i][2] = 2;
             for (int k = 2; k > 0; k--) {
                 int r = rand() % (k + 1);
                 int tmp2 = answerOrder[i][k];
                 answerOrder[i][k] = answerOrder[i][r];
                 answerOrder[i][r] = tmp2;
             }
-            // Find which slot the correct answer ended up in
             for (int k = 0; k < 3; k++) {
                 if (answerOrder[i][k] == orig) { shuffledCorrect[i] = k; break; }
             }
         }
-
         testCurrentQ = 0;
         testSelectedAns = -1;
         testScore = 0;
