@@ -52,3 +52,20 @@ extern Texture2D texture;
 
 // Functions
 void getDateStr(char* buf);
+
+void shuffleTest();
+void handleInput(Vector2 mousePoint);
+
+extern bool hoverGradebookBtn, hoverBack, hoverExit;
+extern bool hoverResursesP1, hoverResursesP2, hoverResursesP3, hoverResursesP4, hoverResursesP5;
+extern bool hoverSubMathText, hoverSubMathTextHw, hoverSubMathTextTest;
+extern bool hoverHwPracticeRect, hoverExPracticeRect;
+
+extern Color hwPracticeRectColor, exPracticeRectColor;
+extern Color hoverSubTextColor, hoverSubTextColorHw, hoverSubTextColorTest;
+extern Color backBtnColor;
+extern Color resursesColorP1, resursesColorP2, resursesColorP3, resursesColorP4, resursesColorP5;
+extern Color exitBg;
+
+void computeHover(Vector2 mousePoint);
+void drawExPractice(Vector2 mousePoint);

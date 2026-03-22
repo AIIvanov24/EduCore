@@ -16,15 +16,15 @@ Color eduRed = { 231, 76, 60, 255 };
 
 float spacing = 20.0f;
 float separationLineY = 220.0f;
-float mainSectionHeight = 0.0f; 
-float mainSectionY = 0.0f;      
-float centerX = 0.0f;           
+float mainSectionHeight = 0.0f;
+float mainSectionY = 0.0f;
+float centerX = 0.0f;
 float labelHeight = 40.0f;
 
 // (Rectangles)
 Rectangle backButtonRect = { 20.0f, 10.0f, 120.0f, 50.0f };
 Rectangle exitButtonRect = { 1260.0f, 10.0f, 120.0f, 50.0f };
-Rectangle subMathSection = { 74.0f, 0, 390.0f, 290.0f }; 
+Rectangle subMathSection = { 74.0f, 0, 390.0f, 290.0f };
 Rectangle subMathSectionHw = { 0, 0, 0, 0 };
 Rectangle subMathSectionTest = { 0, 0, 0, 0 };
 Rectangle subMathSectionLabel = { 0, 0, 0, 0 };
@@ -120,3 +120,43 @@ void getDateStr(char* buf) {
 }
 
 // HOVER COLOR HELPERS
+
+bool hoverGradebookBtn, hoverBack, hoverExit;
+bool hoverResursesP1, hoverResursesP2, hoverResursesP3, hoverResursesP4, hoverResursesP5;
+bool hoverSubMathText, hoverSubMathTextHw, hoverSubMathTextTest;
+bool hoverHwPracticeRect, hoverExPracticeRect;
+
+Color hwPracticeRectColor, exPracticeRectColor;
+Color hoverSubTextColor, hoverSubTextColorHw, hoverSubTextColorTest;
+Color backBtnColor;
+Color resursesColorP1, resursesColorP2, resursesColorP3, resursesColorP4, resursesColorP5;
+Color exitBg;
+
+void computeHover(Vector2 mousePoint) {
+    hoverGradebookBtn = CheckCollisionPointRec(mousePoint, gradebookBtn);
+    hoverBack = CheckCollisionPointRec(mousePoint, backButtonRect);
+    hoverExit = CheckCollisionPointRec(mousePoint, exitButtonRect);
+    hoverResursesP1 = CheckCollisionPointRec(mousePoint, resusrsesP1);
+    hoverResursesP2 = CheckCollisionPointRec(mousePoint, resusrsesP2);
+    hoverResursesP3 = CheckCollisionPointRec(mousePoint, resusrsesP3);
+    hoverResursesP4 = CheckCollisionPointRec(mousePoint, resusrsesP4);
+    hoverResursesP5 = CheckCollisionPointRec(mousePoint, resusrsesP5);
+    hoverSubMathText = CheckCollisionPointRec(mousePoint, subMathSection);
+    hoverSubMathTextHw = CheckCollisionPointRec(mousePoint, subMathSectionHw);
+    hoverSubMathTextTest = CheckCollisionPointRec(mousePoint, subMathSectionTest);
+    hoverHwPracticeRect = CheckCollisionPointRec(mousePoint, hwPracticeRect);
+    hoverExPracticeRect = CheckCollisionPointRec(mousePoint, exPracticeRect);
+
+    hwPracticeRectColor = hoverHwPracticeRect && currentPage != exercises ? eduBlue : currentPage == exercises ? eduTurquoise : subSectionsBg;
+    exPracticeRectColor = hoverExPracticeRect && currentPage != exPractice ? eduBlue : currentPage == exPractice ? eduTurquoise : subSectionsBg;
+    hoverSubTextColor = hoverSubMathText ? LIGHTGRAY : GRAY;
+    hoverSubTextColorHw = hoverSubMathTextHw ? LIGHTGRAY : GRAY;
+    hoverSubTextColorTest = hoverSubMathTextTest ? LIGHTGRAY : GRAY;
+    backBtnColor = hoverBack ? eduBlue : subSectionsBg;
+    resursesColorP1 = hoverResursesP1 ? eduBlue : subSectionsBg;
+    resursesColorP2 = hoverResursesP2 ? eduBlue : subSectionsBg;
+    resursesColorP3 = hoverResursesP3 ? eduBlue : subSectionsBg;
+    resursesColorP4 = hoverResursesP4 ? eduBlue : subSectionsBg;
+    resursesColorP5 = hoverResursesP5 ? eduBlue : subSectionsBg;
+    exitBg = hoverExit ? Color{ 180, 30, 30, 255 } : Color{ 100, 20, 20, 255 };
+}
