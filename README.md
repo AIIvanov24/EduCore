@@ -16,11 +16,6 @@
 
 ---
 
-## Screenshots
-
-> _Add screenshots here after building the project._
-
----
 
 ## Requirements
 
@@ -37,7 +32,7 @@
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/educore.git
+git clone https://github.com/AIIvanov24/EduCore.git
 cd educore
 ```
 
@@ -55,20 +50,6 @@ Visual Studio should restore raylib automatically via NuGet on first build. If i
 ### 4. Build and run
 
 Press **F5** or click **Run** to build and launch the app.
-
----
-
-## Project Structure
-
-```
-educore/
-├── main.cpp              # All application source code
-├── main.slnx             # Visual Studio solution file
-├── main.vcxproj          # Project file
-├── main.vcxproj.filters  # Source file filters for VS
-├── eduCoreLogo.png       # App logo (required at runtime)
-└── README.md
-```
 
 ---
 
