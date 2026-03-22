@@ -1,5 +1,4 @@
 # EduCore — Електронно Училище
-
 <img src="main/main/eduCoreLogo.png" width="150"/>
 
 **EduCore** is a desktop educational application built with C++ and raylib. It provides students with structured learning materials, practice exercises, and timed tests — with results tracked in a built-in gradebook.
@@ -16,7 +15,6 @@
 
 ---
 
-
 ## Requirements
 
 | Tool | Version |
@@ -30,7 +28,6 @@
 ## Getting Started
 
 ### 1. Clone the repository
-
 ```bash
 git clone https://github.com/AIIvanov24/EduCore.git
 cd educore
@@ -101,8 +98,18 @@ Formula: `grade = percentage × 0.06` (min: 2.00, max: 6.00)
 
 ---
 
+## Resources
+
+| Resource | Link |
+|----------|------|
+| 📊 Presentation | [View on SharePoint](https://codingburgas-my.sharepoint.com/:p:/g/personal/aiivanov24_codingburgas_bg/IQAPOQt-81llS7dA6v7Aqa4PAVzjnXyUhpTw9a-0DAZdcaY?e=f17rI5) |
+| 📄 Documentation | [View on SharePoint](https://codingburgas-my.sharepoint.com/:p:/g/personal/aiivanov24_codingburgas_bg/IQAPOQt-81llS7dA6v7Aqa4PAVzjnXyUhpTw9a-0DAZdcaY?e=f17rI5)|
+
+---
+
 ## Built With
 
 - [raylib](https://www.raylib.com/) — Simple and easy-to-use game/graphics library for C/C++
 - C++11
-- Visual Studio 2026
+- Visual Studio 2022
+
