@@ -72,3 +72,6 @@ void drawExPractice(Vector2 mousePoint);
 void drawHomePage();
 void drawMathPage();
 void drawMaterialsPage();
+void drawResursesTab1();
+void drawResursesTab2();
+void drawResursesTab3();

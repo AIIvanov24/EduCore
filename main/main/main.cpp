@@ -177,102 +177,21 @@ int main() {
             DrawText("Back to Maths", (int)(backBtn2.x + 15), (int)(backBtn2.y + 15), 22, RAYWHITE);
         } break;
 
-                        // ══════════════════════════════════════════
         case materials:
 			drawMaterialsPage();
             break;
 
-            // ══════════════════════════════════════════
         case resursesTab1:
-            DrawText("(ax+b)(cx+d)=0 ", 20, 70, 70, eduTurquoise);
-            DrawRectangleRounded(backButtonRect, 0.3f, 10, backBtnColor);
-            DrawRectangleRoundedLines(backButtonRect, 0.3f, 10, sectionOutlines);
-            DrawTexture(texture, 1050, 10, WHITE); drawExitBtn();
-            DrawText(" << Back", (int)(backButtonRect.x + 6.0f), (int)(backButtonRect.y + 13.0f), 25, RAYWHITE);
-            DrawRectangle(40, (int)separationLineY, GetScreenWidth() - 80, 2, eduBlue);
-            DrawRectangleRounded({ 40.0f, separationLineY + 30.0f, 1320.0f, mainSectionHeight }, 0.1f, 10, subSectionsBg);
-            DrawText("TOPIC: Zero-Product Property", 70, (int)separationLineY + 60, 35, eduBlue);
-            DrawText("Concept: If the product of two factors is 0, at least one must be 0.", 70, (int)separationLineY + 110, 22, eduTurquoise);
-            DrawText("Formula: (ax + b) = 0  OR  (cx + d) = 0", 70, (int)separationLineY + 140, 24, RAYWHITE);
-            DrawText("Example 1: (x - 5)(x + 3) = 0", 70, (int)separationLineY + 200, 24, RAYWHITE);
-            DrawText("Solution: x1 = 5, x2 = -3", 450, (int)separationLineY + 200, 24, eduOrange);
-            DrawText("Example 2: (2x - 8)(5x + 10) = 0", 70, (int)separationLineY + 240, 24, RAYWHITE);
-            DrawText("Solution: x1 = 4, x2 = -2", 450, (int)separationLineY + 240, 24, eduOrange);
-            DrawText("Example 3: (4x - 1)(x - 0.5) = 0", 70, (int)separationLineY + 280, 24, RAYWHITE);
-            DrawText("Solution: x1 = 0.25, x2 = 0.5", 450, (int)separationLineY + 280, 24, eduOrange);
-            DrawRectangleRounded({ resusrsesP1 }, 0.1f, 10, eduTurquoise);
-            DrawText("1", (int)resusrsesP1.x + 20, (int)resusrsesP1.y + 10, 25, RAYWHITE);
-            DrawRectangleRounded({ resusrsesP2 }, 0.1f, 10, resursesColorP2);
-            DrawText("2", (int)resusrsesP2.x + 20, (int)resusrsesP2.y + 10, 25, RAYWHITE);
-            DrawRectangleRounded({ resusrsesP3 }, 0.1f, 10, resursesColorP3);
-            DrawText("3", (int)resusrsesP3.x + 20, (int)resusrsesP3.y + 10, 25, RAYWHITE);
-            DrawRectangleRounded({ resusrsesP4 }, 0.1f, 10, resursesColorP4);
-            DrawText("4", (int)resusrsesP4.x + 20, (int)resusrsesP4.y + 10, 25, RAYWHITE);
-            DrawRectangleRounded({ resusrsesP5 }, 0.1f, 10, resursesColorP5);
-            DrawText("5", (int)resusrsesP5.x + 20, (int)resusrsesP5.y + 10, 25, RAYWHITE);
+			drawResursesTab1();
             break;
 
-            // ══════════════════════════════════════════
         case resursesTab2:
-            DrawText("LINEAR EQUATIONS", 20, 70, 70, eduTurquoise);
-            DrawRectangleRounded(backButtonRect, 0.3f, 10, backBtnColor);
-            DrawRectangleRoundedLines(backButtonRect, 0.3f, 10, sectionOutlines);
-            DrawTexture(texture, 1050, 10, WHITE); drawExitBtn();
-            DrawText(" << Back", (int)(backButtonRect.x + 6.0f), (int)(backButtonRect.y + 13.0f), 25, RAYWHITE);
-            DrawRectangle(40, (int)separationLineY, GetScreenWidth() - 80, 2, eduBlue);
-            DrawRectangleRounded({ 40.0f, separationLineY + 30.0f, 1320.0f, mainSectionHeight }, 0.1f, 10, subSectionsBg);
-            DrawText("TOPIC: Solving First-Degree Equations", 70, (int)separationLineY + 60, 35, eduBlue);
-            DrawText("Concept: Move variables to one side and constants to the other.", 70, (int)separationLineY + 110, 22, RAYWHITE);
-            DrawText("General Form: ax + b = 0  =>  x = -b / a", 70, (int)separationLineY + 140, 24, eduTurquoise);
-            DrawText("Example 1: 3x - 12 = 0", 70, (int)separationLineY + 200, 25, RAYWHITE);
-            DrawText("Solution: 3x = 12  =>  x = 4", 450, (int)separationLineY + 200, 25, eduOrange);
-            DrawText("Example 2: 5x + 10 = 2x + 25", 70, (int)separationLineY + 245, 25, RAYWHITE);
-            DrawText("Solution: 3x = 15  =>  x = 5", 450, (int)separationLineY + 245, 25, eduOrange);
-            DrawText("Example 3: 2(x - 3) = 10", 70, (int)separationLineY + 290, 25, RAYWHITE);
-            DrawText("Solution: 2x - 6 = 10 => 2x = 16 => x = 8", 450, (int)separationLineY + 290, 25, eduOrange);
-            DrawText("Remember: Change the sign (+ or -) when moving terms across the '=' sign!", 70, (int)separationLineY + 360, 20, eduTurquoise);
-            DrawRectangleRounded({ resusrsesP1 }, 0.1f, 10, resursesColorP1);
-            DrawText("1", (int)resusrsesP1.x + 20, (int)resusrsesP1.y + 10, 25, RAYWHITE);
-            DrawRectangleRounded({ resusrsesP2 }, 0.1f, 10, eduTurquoise);
-            DrawText("2", (int)resusrsesP2.x + 20, (int)resusrsesP2.y + 10, 25, RAYWHITE);
-            DrawRectangleRounded({ resusrsesP3 }, 0.1f, 10, resursesColorP3);
-            DrawText("3", (int)resusrsesP3.x + 20, (int)resusrsesP3.y + 10, 25, RAYWHITE);
-            DrawRectangleRounded({ resusrsesP4 }, 0.1f, 10, resursesColorP4);
-            DrawText("4", (int)resusrsesP4.x + 20, (int)resusrsesP4.y + 10, 25, RAYWHITE);
-            DrawRectangleRounded({ resusrsesP5 }, 0.1f, 10, resursesColorP5);
-            DrawText("5", (int)resusrsesP5.x + 20, (int)resusrsesP5.y + 10, 25, RAYWHITE);
+            drawResursesTab2();
             break;
 
             // ══════════════════════════════════════════
         case resursesTab3:
-            DrawText("QUADRATIC EQUATIONS", 20, 70, 70, eduTurquoise);
-            DrawRectangleRounded(backButtonRect, 0.3f, 10, backBtnColor);
-            DrawRectangleRoundedLines(backButtonRect, 0.3f, 10, sectionOutlines);
-            DrawTexture(texture, 1050, 10, WHITE); drawExitBtn();
-            DrawText(" << Back", (int)(backButtonRect.x + 6.0f), (int)(backButtonRect.y + 13.0f), 25, RAYWHITE);
-            DrawRectangle(40, (int)separationLineY, GetScreenWidth() - 80, 2, eduBlue);
-            DrawRectangleRounded({ 40.0f, separationLineY + 30.0f, 1320.0f, mainSectionHeight }, 0.1f, 10, subSectionsBg);
-            DrawText("TOPIC: Solving ax^2 + bx + c = 0", 70, (int)separationLineY + 60, 35, eduBlue);
-            DrawText("Concept: Use the Discriminant (D) to find the number of real roots.", 70, (int)separationLineY + 110, 22, RAYWHITE);
-            DrawText("Formula: D = b^2 - 4ac", 70, (int)separationLineY + 145, 26, eduTurquoise);
-            DrawText("Roots: x = (-b +/- sqrt(D)) / 2a", 450, (int)separationLineY + 145, 26, eduTurquoise);
-            DrawText("Example 1: x^2 - 5x + 6 = 0", 70, (int)separationLineY + 210, 25, RAYWHITE);
-            DrawText("D = 1  =>  x1 = 3, x2 = 2", 500, (int)separationLineY + 210, 25, eduOrange);
-            DrawText("Example 2: x^2 - 4x + 4 = 0", 70, (int)separationLineY + 255, 25, RAYWHITE);
-            DrawText("D = 0  =>  x = 2 (Double root)", 500, (int)separationLineY + 255, 25, eduOrange);
-            DrawText("Example 3: x^2 + 2x + 5 = 0", 70, (int)separationLineY + 300, 25, RAYWHITE);
-            DrawText("D = -16 => No real solutions", 500, (int)separationLineY + 300, 25, eduOrange);
-            DrawText("Tip: If D > 0 (2 roots), If D = 0 (1 root), If D < 0 (No real roots).", 70, (int)separationLineY + 370, 22, eduTurquoise);
-            DrawRectangleRounded({ resusrsesP1 }, 0.1f, 10, resursesColorP1);
-            DrawText("1", (int)resusrsesP1.x + 20, (int)resusrsesP1.y + 10, 25, RAYWHITE);
-            DrawRectangleRounded({ resusrsesP2 }, 0.1f, 10, resursesColorP2);
-            DrawText("2", (int)resusrsesP2.x + 20, (int)resusrsesP2.y + 10, 25, RAYWHITE);
-            DrawRectangleRounded({ resusrsesP3 }, 0.1f, 10, eduTurquoise);
-            DrawText("3", (int)resusrsesP3.x + 20, (int)resusrsesP3.y + 10, 25, RAYWHITE);
-            DrawRectangleRounded({ resusrsesP4 }, 0.1f, 10, resursesColorP4);
-            DrawText("4", (int)resusrsesP4.x + 20, (int)resusrsesP4.y + 10, 25, RAYWHITE);
-            DrawRectangleRounded({ resusrsesP5 }, 0.1f, 10, resursesColorP5);
-            DrawText("5", (int)resusrsesP5.x + 20, (int)resusrsesP5.y + 10, 25, RAYWHITE);
+            drawResursesTab3();
             break;
 
             // ══════════════════════════════════════════
