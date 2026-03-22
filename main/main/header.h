@@ -50,12 +50,6 @@ extern bool testAnswered;
 extern int answerOrder[TEST_SIZE][3], shuffledCorrect[TEST_SIZE];
 extern Texture2D texture;
 
-// Functions
-void getDateStr(char* buf);
-
-void shuffleTest();
-void handleInput(Vector2 mousePoint);
-
 extern bool hoverGradebookBtn, hoverBack, hoverExit;
 extern bool hoverResursesP1, hoverResursesP2, hoverResursesP3, hoverResursesP4, hoverResursesP5;
 extern bool hoverSubMathText, hoverSubMathTextHw, hoverSubMathTextTest;
@@ -67,6 +61,12 @@ extern Color backBtnColor;
 extern Color resursesColorP1, resursesColorP2, resursesColorP3, resursesColorP4, resursesColorP5;
 extern Color exitBg;
 
+// Functions
+void getDateStr(char* buf);
+
+void shuffleTest();
+void handleInput(Vector2 mousePoint);
+
 void computeHover(Vector2 mousePoint);
 void drawExPractice(Vector2 mousePoint);
 void drawHomePage();
@@ -77,3 +77,6 @@ void drawResursesTab2();
 void drawResursesTab3();
 void drawResursesTab4();
 void drawResursesTab5();
+void drawExercisesPage();
+void drawGradebookPage();
+void drawTestPage();

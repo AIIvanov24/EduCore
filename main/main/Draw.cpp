@@ -293,3 +293,162 @@ void drawResursesTab5() {
     DrawRectangleRounded({ resusrsesP5 }, 0.1f, 10, eduTurquoise);
     DrawText("5", (int)resusrsesP5.x + 20, (int)resusrsesP5.y + 10, 25, RAYWHITE);
 }
+
+void drawExercisesPage() {
+    DrawText("Maths Homework and Practice", 20, 70, 70, eduTurquoise);
+    DrawRectangleRounded(hwPracticeRect, 0.5f, 10, hwPracticeRectColor);
+    DrawText("Homework", (int)(hwPracticeRect.x + 40.0f), (int)(hwPracticeRect.y + 10.0f), 25, RAYWHITE);
+    DrawRectangleRounded(exPracticeRect, 0.5f, 10, exPracticeRectColor);
+    DrawText("Practice", (int)(exPracticeRect.x + 50.0f), (int)(exPracticeRect.y + 10.0f), 25, RAYWHITE);
+    DrawRectangleRounded(backButtonRect, 0.3f, 10, backBtnColor);
+    DrawRectangleRoundedLines(backButtonRect, 0.3f, 10, sectionOutlines);
+    DrawTexture(texture, 1050, 10, WHITE); drawExitBtn();
+    DrawText(" << Back", (int)(backButtonRect.x + 6.0f), (int)(backButtonRect.y + 13.0f), 25, RAYWHITE);
+    DrawRectangle(40, (int)separationLineY, GetScreenWidth() - 80, 2, eduBlue);
+    DrawRectangleRounded({ 40.0f, separationLineY + 30.0f, 1320.0f, mainSectionHeight }, 0.1f, 10, subSectionsBg);
+    DrawText("1. Linear Equations", 50, (int)(separationLineY + 50.0f), 30, eduBlue);
+    DrawText("Problem 1: 4x - 12 = 2x + 6", 50, (int)(separationLineY + 90.0f), 25, RAYWHITE);
+    DrawText("Answer: x = 9", 50, (int)(separationLineY + 120), 20, eduOrange);
+    DrawText("Problem 2: 5(x - 2) = 3x + 4", 550, (int)(separationLineY + 90.0f), 25, RAYWHITE);
+    DrawText("Answer: x = 7", 550, (int)(separationLineY + 120), 20, eduOrange);
+    DrawText("2. Product of Linear Factors: (ax+b)*(cx+d)=0", 50, (int)(separationLineY + 160.0f), 30, eduBlue);
+    DrawText("Problem 1: (x - 5)*(2x + 8) = 0", 50, (int)(separationLineY + 200.0f), 25, RAYWHITE);
+    DrawText("Answer: x_1 = 5;  x_2 = -4", 50, (int)(separationLineY + 230), 20, eduOrange);
+    DrawText("Problem 2: (3x - 9)*(x + 7) = 0", 550, (int)(separationLineY + 200.0f), 25, RAYWHITE);
+    DrawText("Answer: x_1 = 3;  x_2 = -7", 550, (int)(separationLineY + 230), 20, eduOrange);
+    DrawText("3. Quadratic Equations", 50, (int)(separationLineY + 270.0f), 30, eduBlue);
+    DrawText("Problem 1: x^2 - 5x + 6 = 0", 50, (int)(separationLineY + 310.0f), 25, RAYWHITE);
+    DrawText("Answer: x_1 = 2, x_2 = 3", 50, (int)(separationLineY + 340), 20, eduOrange);
+    DrawText("Problem 2: x^2 + 2x - 8 = 0", 550, (int)(separationLineY + 310.0f), 25, RAYWHITE);
+    DrawText("Answer: x_1 = 2, x_2 = -4", 550, (int)(separationLineY + 340), 20, eduOrange);
+    DrawText("4. Homogeneous Equations", 50, (int)(separationLineY + 380.0f), 30, eduBlue);
+    DrawText("Problem 1: 2x^2 - 5xy + 2y^2 = 0", 50, (int)(separationLineY + 420.0f), 25, RAYWHITE);
+    DrawText("Answer: x = 2y or x = 0.5y", 50, (int)(separationLineY + 450), 20, eduOrange);
+    DrawText("Problem 2: x^2 + xy - 6y^2 = 0", 550, (int)(separationLineY + 420.0f), 25, RAYWHITE);
+    DrawText("Answer: x = 2y or x = -3y", 550, (int)(separationLineY + 450), 20, eduOrange);
+}
+
+void drawGradebookPage() {
+    DrawText("Gradebook", 20, 70, 70, eduOrange);
+    DrawTexture(texture, 1050, 10, WHITE); drawExitBtn();
+    DrawRectangleRounded(backButtonRect, 0.3f, 10, hoverBack ? eduBlue : subSectionsBg);
+    DrawRectangleRoundedLines(backButtonRect, 0.3f, 10, sectionOutlines);
+    DrawText(" << Back", (int)(backButtonRect.x + 6.0f), (int)(backButtonRect.y + 13.0f), 25, RAYWHITE);
+    DrawRectangle(40, (int)separationLineY, GetScreenWidth() - 80, 2, eduOrange);
+    DrawRectangleRounded({ 40.0f, separationLineY + 30.0f, 1320.0f, mainSectionHeight }, 0.1f, 10, subSectionsBg);
+
+    if (gradebookCount == 0) {
+        // Empty state
+        int tw = MeasureText("No tests completed yet.", 30);
+        DrawText("No tests completed yet.", (GetScreenWidth() - tw) / 2, (int)(separationLineY + 130), 30, GRAY);
+        int tw2 = MeasureText("Complete a Maths Test to see your results here.", 22);
+        DrawText("Complete a Maths Test to see your results here.", (GetScreenWidth() - tw2) / 2, (int)(separationLineY + 180), 22, DARKGRAY);
+    }
+    else {
+        // ── Table header ──
+        float tableX = 60.0f;
+        float tableY = separationLineY + 50.0f;
+        float rowH = 48.0f;
+
+        DrawRectangle((int)tableX, (int)tableY, 1280, 38, ColorBrightness(eduOrange, -0.35f));
+        DrawText("#", (int)(tableX + 15), (int)(tableY + 8), 20, RAYWHITE);
+        DrawText("Score", (int)(tableX + 70), (int)(tableY + 8), 20, RAYWHITE);
+        DrawText("Percent", (int)(tableX + 270), (int)(tableY + 8), 20, RAYWHITE);
+        DrawText("Grade", (int)(tableX + 530), (int)(tableY + 8), 20, RAYWHITE);
+        DrawText("Date", (int)(tableX + 830), (int)(tableY + 8), 20, RAYWHITE);
+        DrawText("Result", (int)(tableX + 1070), (int)(tableY + 8), 20, RAYWHITE);
+
+        // ── Rows (newest first, max 9 visible) ──
+        int shown = gradebookCount < 9 ? gradebookCount : 9;
+        for (int i = 0; i < shown; i++) {
+            // newest first
+            TestResult& r = gradebook[gradebookCount - 1 - i];
+            float ry = tableY + 38.0f + i * rowH;
+            Color rowBg = (i % 2 == 0) ? mainBackground : ColorBrightness(subSectionsBg, 0.15f);
+            DrawRectangle((int)tableX, (int)ry, 1280, (int)(rowH - 2), rowBg);
+
+            Color gc = r.grade >= 4.8f ? eduGreen : r.grade >= 3.6f ? eduOrange : eduRed;
+
+            // Row number
+            DrawText(TextFormat("%d", gradebookCount - i), (int)(tableX + 15), (int)(ry + 12), 20, GRAY);
+            // Score
+            DrawText(TextFormat("%d / %d", r.score, r.total), (int)(tableX + 70), (int)(ry + 12), 20, RAYWHITE);
+            // Percent
+            DrawText(TextFormat("%.0f%%", r.pct), (int)(tableX + 270), (int)(ry + 12), 20, gc);
+            // Grade
+            char gbuf[16]; snprintf(gbuf, sizeof(gbuf), "%.2f / 6.00", r.grade);
+            DrawText(gbuf, (int)(tableX + 530), (int)(ry + 12), 20, gc);
+            // Date
+            DrawText(r.date, (int)(tableX + 830), (int)(ry + 12), 20, LIGHTGRAY);
+            // Result label
+            const char* label = r.grade >= 4.8f ? "Excellent" : r.grade >= 3.6f ? "Good" : r.grade >= 2.4f ? "Average" : "Poor";
+            DrawText(label, (int)(tableX + 1070), (int)(ry + 12), 20, gc);
+        }
+
+        // ── Average row ──
+        float avgY = tableY + 38.0f + shown * rowH + 10.0f;
+        DrawRectangle((int)tableX, (int)avgY, 1280, 40, ColorBrightness(eduOrange, -0.3f));
+        float totalGrade = 0;
+        for (int i = 0; i < gradebookCount; i++) totalGrade += gradebook[i].grade;
+        float avgGrade = totalGrade / gradebookCount;
+        char avgBuf[64];
+        snprintf(avgBuf, sizeof(avgBuf), "Average Grade:  %.2f / 6.00   (%d tests total)", avgGrade, gradebookCount);
+        DrawText(avgBuf, (int)(tableX + 15), (int)(avgY + 10), 22,
+            avgGrade >= 4.8f ? eduGreen : avgGrade >= 3.6f ? eduOrange : eduRed);
+    }
+}
+
+void drawTestPage() {
+	Vector2 mousePoint = GetMousePosition();
+    DrawText("Maths Test", 20, 70, 70, eduTurquoise);
+    DrawRectangleRounded(backButtonRect, 0.3f, 10, backBtnColor);
+    DrawRectangleRoundedLines(backButtonRect, 0.3f, 10, sectionOutlines);
+    DrawTexture(texture, 1050, 10, WHITE); drawExitBtn();
+    DrawText(" << Back", (int)(backButtonRect.x + 6.0f), (int)(backButtonRect.y + 13.0f), 25, RAYWHITE);
+    DrawRectangle(40, (int)separationLineY, GetScreenWidth() - 80, 2, eduBlue);
+    DrawRectangleRounded({ 40.0f, separationLineY + 30.0f, 1320.0f, mainSectionHeight }, 0.1f, 10, subSectionsBg);
+
+    Question& q = testBank[testOrder[testCurrentQ]];
+    float testStartY = separationLineY + 60.0f;
+
+    // Progress bar
+    DrawRectangle(70, (int)(testStartY - 15), 1260, 10, subSectionsBg);
+    DrawRectangle(70, (int)(testStartY - 15), (int)(1260.0f * testCurrentQ / TEST_SIZE), 10, eduTurquoise);
+
+    // Question counter + live score
+    DrawText(TextFormat("Question %d / %d", testCurrentQ + 1, TEST_SIZE), 70, (int)testStartY, 25, eduOrange);
+    DrawText(TextFormat("Score: %d", testScore), 1200, (int)testStartY, 22, eduTurquoise);
+
+    // Question text
+    DrawText(q.text, 70, (int)(testStartY + 45), 33, RAYWHITE);
+
+    // Answer options A / B / C  (displayed in shuffled order)
+    const char* prefixes[3] = { "A)  ", "B)  ", "C)  " };
+    for (int i = 0; i < 3; i++) {
+        Rectangle ansRect = { 70.0f, testStartY + 125.0f + (i * 72.0f), 700.0f, 58.0f };
+        Color boxColor = ColorAlpha(eduBlue, 0.2f);
+        if (testAnswered) {
+            if (i == shuffledCorrect[testCurrentQ]) boxColor = eduGreen;
+            else if (i == testSelectedAns)          boxColor = eduRed;
+        }
+        else if (CheckCollisionPointRec(mousePoint, ansRect)) {
+            boxColor = eduTurquoise;
+        }
+        DrawRectangleRounded(ansRect, 0.2f, 10, boxColor);
+        DrawRectangleRoundedLines(ansRect, 0.2f, 10, sectionOutlines);
+        // Show the answer text at the shuffled position
+        int origIdx = answerOrder[testCurrentQ][i];
+        DrawText(TextFormat("%s%s", prefixes[i], q.answers[origIdx]),
+            (int)ansRect.x + 20, (int)ansRect.y + 16, 22, RAYWHITE);
+    }
+
+    // Next / Finish button (shown after answering)
+    if (testAnswered) {
+        Rectangle nextBtn = { 1100, separationLineY + 450, 200, 50 };
+        bool hoverNext = CheckCollisionPointRec(mousePoint, nextBtn);
+        DrawRectangleRounded(nextBtn, 0.2f, 10, hoverNext ? eduOrange : DARKGRAY);
+        DrawRectangleRoundedLines(nextBtn, 0.2f, 10, sectionOutlines);
+        DrawText(testCurrentQ < TEST_SIZE - 1 ? "Next >" : "See Results",
+            (int)nextBtn.x + 25, (int)nextBtn.y + 15, 20, RAYWHITE);
+    }
+}
