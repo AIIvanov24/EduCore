@@ -42,13 +42,9 @@ int main() {
             break; // exits the while loop >> closes app
 
         // ── INPUT ────────────────────────────────
-        handleInput(mousePoint); // <-- replaces the entire switch block
-
-        // ... rest of hover/draw code unchanged
-
-    // ── HOVER / COLOUR HELPERS ───────────────
+        handleInput(mousePoint);
+        // ── HOVER / COLOUR HELPERS ───────────────
         computeHover(mousePoint);
-
         // ── DRAW ─────────────────────────────────
         BeginDrawing();
         ClearBackground(mainBackground);
@@ -63,70 +59,14 @@ int main() {
 
         switch (currentPage) {
 
-            // ══════════════════════════════════════════
         case homePage:
-            DrawText("Welcome to ", 20, 70, 70, eduBlue);
-            DrawText("EduCore Online School !", 20, 140, 70, eduOrange);
-            DrawTexture(texture, 1050, 10, WHITE); drawExitBtn();
-            DrawRectangle(40, (int)separationLineY, GetScreenWidth() - 80, 2, eduBlue);
-            DrawRectangleRounded({ 40.0f, separationLineY + 30.0f, 1320.0f, mainSectionHeight }, 0.1f, 10, subSectionsBg);
-            DrawText(" Please choose a subject", (int)centerX, (int)(mainSectionY + 30.0f), 30, RAYWHITE);
-            DrawRectangleRounded(mathSection, 0.2f, 10, mainBackground);
-            DrawRectangleRounded(labelRect, 1.0f, 10, eduTurquoise);
-            DrawRectangle((int)labelRect.x, (int)(labelRect.y + labelHeight / 2.0f), (int)labelRect.width, (int)(labelHeight / 2.0f), eduTurquoise);
-            DrawRectangleRoundedLines(mathSection, 0.2f, 10, eduTurquoise);
-            DrawText(" MATHS    [ + - * /]", (int)(mathSection.x + 20.0f), (int)(mathSection.y + 10.0f), 25, RAYWHITE);
-            DrawText("Explore the world of numbers and equations with our comprehensive math courses.", (int)(mathSection.x + 20.0f), (int)(mathSection.y + 50.0f), 20, RAYWHITE);
-            DrawText("From basic arithmetic to advanced calculus, our curriculum is designed to build a strong foundation in mathematics.", (int)(mathSection.x + 20.0f), (int)(mathSection.y + 55.0f + spacing), 20, RAYWHITE);
-            DrawText("Content: ", (int)(mathSection.x + 20.0f), (int)(mathSection.y + 60.0f + spacing * 3.0f), 20, sectionOutlines);
-            DrawText("Materials & Lessons / Exercises for HW and practice / Tests", (int)(mathSection.x + 20.0f), (int)(mathSection.y + 70.0f + spacing * 4.0f), 20, GRAY);
-            // Gradebook button below the subject card
-            DrawRectangleRounded(gradebookBtn, 0.3f, 10, hoverGradebookBtn ? eduOrange : subSectionsBg);
-            DrawRectangleRoundedLines(gradebookBtn, 0.3f, 10, eduOrange);
-            DrawText(" Gradebook  [ View Results ]", (int)(gradebookBtn.x + 20), (int)(gradebookBtn.y + 15), 24, RAYWHITE);
-            DrawText("Discover more subjects with EduCorePlus", 90, (int)(mainSectionY + 10.0f * spacing + 200.0f + 90.0f), 25, sectionOutlines);
+			drawHomePage();
             break;
 
-            // ══════════════════════════════════════════
         case mathPage:
-            DrawText("Welcome to ", 20, 70, 70, eduBlue);
-            DrawText("Maths", 20, 140, 70, eduTurquoise);
-            DrawRectangleRounded(backButtonRect, 0.3f, 10, backBtnColor);
-            DrawRectangleRoundedLines(backButtonRect, 0.3f, 10, sectionOutlines);
-            DrawTexture(texture, 1050, 10, WHITE); drawExitBtn();
-            DrawText(" << Back", (int)(backButtonRect.x + 6.0f), (int)(backButtonRect.y + 13.0f), 25, RAYWHITE);
-            DrawRectangle(40, (int)separationLineY, GetScreenWidth() - 80, 2, eduBlue);
-            DrawRectangleRounded({ 40.0f, separationLineY + 30.0f, 1320.0f, mainSectionHeight }, 0.1f, 10, subSectionsBg);
-            DrawRectangleRounded(subMathSection, 0.2f, 10, mainBackground);
-            DrawRectangleRounded(subMathSectionLabel, 1.0f, 10, eduTurquoise);
-            DrawRectangle((int)subMathSectionLabel.x, (int)(subMathSectionLabel.y + labelHeight / 2.0f), (int)subMathSectionLabel.width, (int)labelHeight, eduTurquoise);
-            DrawText("Materials & Lessons", (int)(subMathSection.x + spacing), (int)(subMathSection.y + spacing - 5.0f), 30, RAYWHITE);
-            DrawText("Access comprehensive study guides", (int)(subMathSection.x + 20.0f), (int)(subMathSection.y + 85.0f), 18, hoverSubTextColor);
-            DrawText("and step-by-step explanations to master", (int)(subMathSection.x + 20.0f), (int)(subMathSection.y + 110.0f), 18, hoverSubTextColor);
-            DrawText("new mathematical concepts.", (int)(subMathSection.x + 20.0f), (int)(subMathSection.y + 135.0f), 18, hoverSubTextColor);
-            DrawRectangleRounded({ subMathSectionLabel.x + 42.0f, subMathSectionLabel.y + labelHeight / 2.0f + 200.0f, subMathSectionLabel.width - 88.0f, labelHeight }, 0.3f, 9, eduTurquoise);
-            DrawText("View", (int)(subMathSection.x + spacing + 140.0f), (int)(subMathSection.y + spacing + 205.0f), 30, RAYWHITE);
-            DrawRectangleRounded(subMathSectionHw, 0.2f, 10, mainBackground);
-            DrawRectangleRounded({ subMathSectionHw.x, subMathSectionHw.y, subMathSectionHw.width, labelHeight }, 1.0f, 10, eduTurquoise);
-            DrawRectangle((int)(subMathSectionLabel.x + 391.0f + spacing * 2.0f), (int)(subMathSectionLabel.y + labelHeight / 2.0f), (int)(subMathSectionLabel.width - 1.0f), (int)labelHeight, eduTurquoise);
-            DrawText("HW and practice", (int)(subMathSectionHw.x + spacing), (int)(subMathSectionHw.y + spacing - 5.0f), 30, RAYWHITE);
-            DrawText("Sharpen your skills with interactive", (int)(subMathSectionHw.x + 20.0f), (int)(subMathSectionHw.y + 85.0f), 18, hoverSubTextColorHw);
-            DrawText("problem sets and exercises designed to", (int)(subMathSectionHw.x + 20.0f), (int)(subMathSectionHw.y + 110.0f), 18, hoverSubTextColorHw);
-            DrawText("reinforce what you've learned in class.", (int)(subMathSectionHw.x + 20.0f), (int)(subMathSectionHw.y + 135.0f), 18, hoverSubTextColorHw);
-            DrawRectangleRounded({ subMathSectionLabel.x + 472.0f, subMathSectionLabel.y + labelHeight / 2.0f + 200.0f, subMathSectionLabel.width - 88.0f, labelHeight }, 0.3f, 9, eduTurquoise);
-            DrawText("Practise", (int)(subMathSectionHw.x + spacing + 110.0f), (int)(subMathSectionHw.y + spacing + 205.0f), 30, RAYWHITE);
-            DrawRectangleRounded(subMathSectionTest, 0.2f, 10, mainBackground);
-            DrawRectangleRounded({ subMathSectionTest.x, subMathSectionTest.y, subMathSectionTest.width, labelHeight }, 1.0f, 10, eduTurquoise);
-            DrawRectangle((int)(subMathSectionLabel.x + 391.0f * 2.0f + spacing * 4.0f), (int)(subMathSectionLabel.y + labelHeight / 2.0f), (int)(subMathSectionLabel.width - 2.0f), (int)labelHeight, eduTurquoise);
-            DrawText("Tests", (int)(subMathSectionTest.x + spacing), (int)(subMathSectionTest.y + spacing - 5.0f), 30, RAYWHITE);
-            DrawText("Evaluate your progress and prepare for", (int)(subMathSectionTest.x + 20.0f), (int)(subMathSectionTest.y + 85.0f), 18, hoverSubTextColorTest);
-            DrawText("exams with timed quizzes and mock tests", (int)(subMathSectionTest.x + 20.0f), (int)(subMathSectionTest.y + 110.0f), 18, hoverSubTextColorTest);
-            DrawText("covering all key curriculum topics.", (int)(subMathSectionTest.x + 20.0f), (int)(subMathSectionTest.y + 135.0f), 18, hoverSubTextColorTest);
-            DrawRectangleRounded({ subMathSectionLabel.x + 902.0f, subMathSectionLabel.y + labelHeight / 2.0f + 200.0f, subMathSectionLabel.width - 88.0f, labelHeight }, 0.3f, 9, eduTurquoise);
-            DrawText("Start Test", (int)(subMathSectionTest.x + spacing + 90.0f), (int)(subMathSectionTest.y + spacing + 205.0f), 30, RAYWHITE);
+			drawMathPage();
             break;
 
-            // ══════════════════════════════════════════
         case test: {
             DrawText("Maths Test", 20, 70, 70, eduTurquoise);
             DrawRectangleRounded(backButtonRect, 0.3f, 10, backBtnColor);
@@ -239,36 +179,7 @@ int main() {
 
                         // ══════════════════════════════════════════
         case materials:
-            DrawText("LEARNING RESOURCES", 20, 70, 70, eduTurquoise);
-            DrawRectangleRounded(backButtonRect, 0.3f, 10, backBtnColor);
-            DrawRectangleRoundedLines(backButtonRect, 0.3f, 10, sectionOutlines);
-            DrawTexture(texture, 1050, 10, WHITE); drawExitBtn();
-            DrawText(" << Back", (int)(backButtonRect.x + 6.0f), (int)(backButtonRect.y + 13.0f), 25, RAYWHITE);
-            DrawRectangle(40, (int)separationLineY, GetScreenWidth() - 80, 2, eduBlue);
-            DrawRectangleRounded({ 40.0f, separationLineY + 30.0f, 1320.0f, mainSectionHeight }, 0.1f, 10, subSectionsBg);
-            DrawText("Study Material Navigation Guide", 50, (int)(separationLineY + 50.0f), 30, eduBlue);
-            DrawText("Select a numbered tab below to access theory and examples:", 50, (int)(separationLineY + 90.0f), 24, RAYWHITE);
-            DrawText("Tab 1: Product Equations", 100, (int)(separationLineY + 150.0f), 25, eduOrange);
-            DrawText("- Learn how to solve (ax + b)(cx + d) = 0 using zero-product property.", 450, (int)(separationLineY + 150.0f), 22, RAYWHITE);
-            DrawText("Tab 2: Linear Equations", 100, (int)(separationLineY + 190.0f), 25, eduOrange);
-            DrawText("- Basic rules and steps for solving first-degree equations.", 450, (int)(separationLineY + 190.0f), 22, RAYWHITE);
-            DrawText("Tab 3: Quadratic Equations", 100, (int)(separationLineY + 230.0f), 25, eduOrange);
-            DrawText("- Comprehensive guide for ax^2 + bx + c = 0 solving methods.", 450, (int)(separationLineY + 230.0f), 22, RAYWHITE);
-            DrawText("Tab 4: Homogeneous", 100, (int)(separationLineY + 270.0f), 25, eduOrange);
-            DrawText("- Deep dive into advanced same-degree polynomial equations.", 450, (int)(separationLineY + 270.0f), 22, RAYWHITE);
-            DrawText("Tab 5: Quick Summary", 100, (int)(separationLineY + 310.0f), 25, eduOrange);
-            DrawText("- Formulas, cheat sheets, and essential math properties.", 450, (int)(separationLineY + 310.0f), 22, RAYWHITE);
-            DrawText("Tip: Review each section carefully before starting your homework!", 50, (int)(separationLineY + 380.0f), 20, eduTurquoise);
-            DrawRectangleRounded({ resusrsesP1 }, 0.1f, 10, resursesColorP1);
-            DrawText("1", (int)resusrsesP1.x + 20, (int)resusrsesP1.y + 10, 25, RAYWHITE);
-            DrawRectangleRounded({ resusrsesP2 }, 0.1f, 10, resursesColorP2);
-            DrawText("2", (int)resusrsesP2.x + 20, (int)resusrsesP2.y + 10, 25, RAYWHITE);
-            DrawRectangleRounded({ resusrsesP3 }, 0.1f, 10, resursesColorP3);
-            DrawText("3", (int)resusrsesP3.x + 20, (int)resusrsesP3.y + 10, 25, RAYWHITE);
-            DrawRectangleRounded({ resusrsesP4 }, 0.1f, 10, resursesColorP4);
-            DrawText("4", (int)resusrsesP4.x + 20, (int)resusrsesP4.y + 10, 25, RAYWHITE);
-            DrawRectangleRounded({ resusrsesP5 }, 0.1f, 10, resursesColorP5);
-            DrawText("5", (int)resusrsesP5.x + 20, (int)resusrsesP5.y + 10, 25, RAYWHITE);
+			drawMaterialsPage();
             break;
 
             // ══════════════════════════════════════════

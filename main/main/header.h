@@ -69,3 +69,6 @@ extern Color exitBg;
 
 void computeHover(Vector2 mousePoint);
 void drawExPractice(Vector2 mousePoint);
+void drawHomePage();
+void drawMathPage();
+void drawMaterialsPage();
