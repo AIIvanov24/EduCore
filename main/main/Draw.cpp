@@ -1,11 +1,13 @@
 #include "header.h"
 
-auto drawExitBtn = [&]() {
+void drawExitBtn(Vector2 mousePoint) {
+    bool hoverExit = CheckCollisionPointRec(mousePoint, exitButtonRect);
+    Color exitBg = hoverExit ? Color{ 180, 30, 30, 255 } : Color{ 100, 20, 20, 255 };
 
     DrawRectangleRounded(exitButtonRect, 0.3f, 10, exitBg);
     DrawRectangleRoundedLines(exitButtonRect, 0.3f, 10, { 220, 50, 50, 255 });
-    DrawText("   Exit", (int)(exitButtonRect.x + 12), (int)(exitButtonRect.y + 13), 24, RAYWHITE);
-    };
+    DrawText("    Exit", (int)(exitButtonRect.x + 12), (int)(exitButtonRect.y + 13), 24, RAYWHITE);
+}
 
 void drawExPractice(Vector2 mousePoint) {
     DrawText("Maths Homework and Practice", 20, 70, 70, eduTurquoise);
@@ -15,7 +17,7 @@ void drawExPractice(Vector2 mousePoint) {
     DrawRectangleRounded(exPracticeRect, 0.5f, 10, exPracticeRectColor);
     DrawText("Practice", (int)(exPracticeRect.x + 50.0f), (int)(exPracticeRect.y + 10.0f), 25, RAYWHITE);
     DrawRectangleRoundedLines(backButtonRect, 0.3f, 10, sectionOutlines);
-    DrawTexture(texture, 1050, 10, WHITE); drawExitBtn();
+    DrawTexture(texture, 1050, 10, WHITE); drawExitBtn(mousePoint);
     DrawText(" << Back", (int)(backButtonRect.x + 6.0f), (int)(backButtonRect.y + 13.0f), 25, RAYWHITE);
     DrawRectangle(40, (int)separationLineY, GetScreenWidth() - 80, 2, eduBlue);
     DrawRectangleRounded({ 40.0f, separationLineY + 30.0f, 1320.0f, mainSectionHeight }, 0.1f, 10, subSectionsBg);
@@ -50,10 +52,10 @@ void drawExPractice(Vector2 mousePoint) {
     }
 }
 
-void drawHomePage() {
+void drawHomePage(Vector2 mousePoint) {
     DrawText("Welcome to ", 20, 70, 70, eduBlue);
     DrawText("EduCore Online School !", 20, 140, 70, eduOrange);
-    DrawTexture(texture, 1050, 10, WHITE); drawExitBtn();
+    DrawTexture(texture, 1050, 10, WHITE); drawExitBtn(mousePoint);
     DrawRectangle(40, (int)separationLineY, GetScreenWidth() - 80, 2, eduBlue);
     DrawRectangleRounded({ 40.0f, separationLineY + 30.0f, 1320.0f, mainSectionHeight }, 0.1f, 10, subSectionsBg);
     DrawText(" Please choose a subject", (int)centerX, (int)(mainSectionY + 30.0f), 30, RAYWHITE);
@@ -72,12 +74,12 @@ void drawHomePage() {
     DrawText("Discover more subjects with EduCorePlus", 90, (int)(mainSectionY + 10.0f * spacing + 200.0f + 90.0f), 25, sectionOutlines);
 }
 
-void drawMathPage() {
+void drawMathPage(Vector2 mousePoint) {
     DrawText("Welcome to ", 20, 70, 70, eduBlue);
     DrawText("Maths", 20, 140, 70, eduTurquoise);
     DrawRectangleRounded(backButtonRect, 0.3f, 10, backBtnColor);
     DrawRectangleRoundedLines(backButtonRect, 0.3f, 10, sectionOutlines);
-    DrawTexture(texture, 1050, 10, WHITE); drawExitBtn();
+    DrawTexture(texture, 1050, 10, WHITE); drawExitBtn(mousePoint);
     DrawText(" << Back", (int)(backButtonRect.x + 6.0f), (int)(backButtonRect.y + 13.0f), 25, RAYWHITE);
     DrawRectangle(40, (int)separationLineY, GetScreenWidth() - 80, 2, eduBlue);
     DrawRectangleRounded({ 40.0f, separationLineY + 30.0f, 1320.0f, mainSectionHeight }, 0.1f, 10, subSectionsBg);
@@ -110,11 +112,11 @@ void drawMathPage() {
     DrawText("Start Test", (int)(subMathSectionTest.x + spacing + 90.0f), (int)(subMathSectionTest.y + spacing + 205.0f), 30, RAYWHITE);
 }
 
-void drawMaterialsPage() {
+void drawMaterialsPage(Vector2 mousePoint) {
     DrawText("LEARNING RESOURCES", 20, 70, 70, eduTurquoise);
     DrawRectangleRounded(backButtonRect, 0.3f, 10, backBtnColor);
     DrawRectangleRoundedLines(backButtonRect, 0.3f, 10, sectionOutlines);
-    DrawTexture(texture, 1050, 10, WHITE); drawExitBtn();
+    DrawTexture(texture, 1050, 10, WHITE); drawExitBtn(mousePoint);
     DrawText(" << Back", (int)(backButtonRect.x + 6.0f), (int)(backButtonRect.y + 13.0f), 25, RAYWHITE);
     DrawRectangle(40, (int)separationLineY, GetScreenWidth() - 80, 2, eduBlue);
     DrawRectangleRounded({ 40.0f, separationLineY + 30.0f, 1320.0f, mainSectionHeight }, 0.1f, 10, subSectionsBg);
@@ -143,11 +145,11 @@ void drawMaterialsPage() {
     DrawText("5", (int)resusrsesP5.x + 20, (int)resusrsesP5.y + 10, 25, RAYWHITE);
 }
 
-void drawResursesTab1(){
+void drawResursesTab1(Vector2 mousePoint){
      DrawText("(ax+b)(cx+d)=0 ", 20, 70, 70, eduTurquoise);
      DrawRectangleRounded(backButtonRect, 0.3f, 10, backBtnColor);
      DrawRectangleRoundedLines(backButtonRect, 0.3f, 10, sectionOutlines);
-     DrawTexture(texture, 1050, 10, WHITE); drawExitBtn();
+     DrawTexture(texture, 1050, 10, WHITE); drawExitBtn(mousePoint);
      DrawText(" << Back", (int)(backButtonRect.x + 6.0f), (int)(backButtonRect.y + 13.0f), 25, RAYWHITE);
      DrawRectangle(40, (int)separationLineY, GetScreenWidth() - 80, 2, eduBlue);
      DrawRectangleRounded({ 40.0f, separationLineY + 30.0f, 1320.0f, mainSectionHeight }, 0.1f, 10, subSectionsBg);
@@ -172,11 +174,11 @@ void drawResursesTab1(){
      DrawText("5", (int)resusrsesP5.x + 20, (int)resusrsesP5.y + 10, 25, RAYWHITE);
 }
 
-void drawResursesTab2(){
+void drawResursesTab2(Vector2 mousePoint){
     DrawText("LINEAR EQUATIONS", 20, 70, 70, eduTurquoise);
     DrawRectangleRounded(backButtonRect, 0.3f, 10, backBtnColor);
     DrawRectangleRoundedLines(backButtonRect, 0.3f, 10, sectionOutlines);
-    DrawTexture(texture, 1050, 10, WHITE); drawExitBtn();
+    DrawTexture(texture, 1050, 10, WHITE); drawExitBtn(mousePoint);
     DrawText(" << Back", (int)(backButtonRect.x + 6.0f), (int)(backButtonRect.y + 13.0f), 25, RAYWHITE);
     DrawRectangle(40, (int)separationLineY, GetScreenWidth() - 80, 2, eduBlue);
     DrawRectangleRounded({ 40.0f, separationLineY + 30.0f, 1320.0f, mainSectionHeight }, 0.1f, 10, subSectionsBg);
@@ -202,11 +204,11 @@ void drawResursesTab2(){
     DrawText("5", (int)resusrsesP5.x + 20, (int)resusrsesP5.y + 10, 25, RAYWHITE);
 }
 
-void drawResursesTab3() {
+void drawResursesTab3(Vector2 mousePoint) {
     DrawText("QUADRATIC EQUATIONS", 20, 70, 70, eduTurquoise);
     DrawRectangleRounded(backButtonRect, 0.3f, 10, backBtnColor);
     DrawRectangleRoundedLines(backButtonRect, 0.3f, 10, sectionOutlines);
-    DrawTexture(texture, 1050, 10, WHITE); drawExitBtn();
+    DrawTexture(texture, 1050, 10, WHITE); drawExitBtn(mousePoint);
     DrawText(" << Back", (int)(backButtonRect.x + 6.0f), (int)(backButtonRect.y + 13.0f), 25, RAYWHITE);
     DrawRectangle(40, (int)separationLineY, GetScreenWidth() - 80, 2, eduBlue);
     DrawRectangleRounded({ 40.0f, separationLineY + 30.0f, 1320.0f, mainSectionHeight }, 0.1f, 10, subSectionsBg);
@@ -233,11 +235,11 @@ void drawResursesTab3() {
     DrawText("5", (int)resusrsesP5.x + 20, (int)resusrsesP5.y + 10, 25, RAYWHITE);
 }
 
-void drawResursesTab4() {
+void drawResursesTab4(Vector2 mousePoint) {
     DrawText("HOMOGENEOUS EQUATIONS", 20, 70, 70, eduTurquoise);
     DrawRectangleRounded(backButtonRect, 0.3f, 10, backBtnColor);
     DrawRectangleRoundedLines(backButtonRect, 0.3f, 10, sectionOutlines);
-    DrawTexture(texture, 1050, 10, WHITE); drawExitBtn();
+    DrawTexture(texture, 1050, 10, WHITE); drawExitBtn(mousePoint);
     DrawText(" << Back", (int)(backButtonRect.x + 6.0f), (int)(backButtonRect.y + 13.0f), 25, RAYWHITE);
     DrawRectangle(40, (int)separationLineY, GetScreenWidth() - 80, 2, eduBlue);
     DrawRectangleRounded({ 40.0f, separationLineY + 30.0f, 1320.0f, mainSectionHeight }, 0.1f, 10, subSectionsBg);
@@ -264,11 +266,11 @@ void drawResursesTab4() {
     DrawText("5", (int)resusrsesP5.x + 20, (int)resusrsesP5.y + 10, 25, RAYWHITE);
 }
 
-void drawResursesTab5() {
+void drawResursesTab5(Vector2 mousePoint) {
     DrawText("MATH QUICK SUMMARY", 20, 70, 70, eduTurquoise);
     DrawRectangleRounded(backButtonRect, 0.3f, 10, backBtnColor);
     DrawRectangleRoundedLines(backButtonRect, 0.3f, 10, sectionOutlines);
-    DrawTexture(texture, 1050, 10, WHITE); drawExitBtn();
+    DrawTexture(texture, 1050, 10, WHITE); drawExitBtn(mousePoint);
     DrawText(" << Back", (int)(backButtonRect.x + 6.0f), (int)(backButtonRect.y + 13.0f), 25, RAYWHITE);
     DrawRectangle(40, (int)separationLineY, GetScreenWidth() - 80, 2, eduBlue);
     DrawRectangleRounded({ 40.0f, separationLineY + 30.0f, 1320.0f, mainSectionHeight }, 0.1f, 10, subSectionsBg);
@@ -294,7 +296,7 @@ void drawResursesTab5() {
     DrawText("5", (int)resusrsesP5.x + 20, (int)resusrsesP5.y + 10, 25, RAYWHITE);
 }
 
-void drawExercisesPage() {
+void drawExercisesPage(Vector2 mousePoint) {
     DrawText("Maths Homework and Practice", 20, 70, 70, eduTurquoise);
     DrawRectangleRounded(hwPracticeRect, 0.5f, 10, hwPracticeRectColor);
     DrawText("Homework", (int)(hwPracticeRect.x + 40.0f), (int)(hwPracticeRect.y + 10.0f), 25, RAYWHITE);
@@ -302,7 +304,7 @@ void drawExercisesPage() {
     DrawText("Practice", (int)(exPracticeRect.x + 50.0f), (int)(exPracticeRect.y + 10.0f), 25, RAYWHITE);
     DrawRectangleRounded(backButtonRect, 0.3f, 10, backBtnColor);
     DrawRectangleRoundedLines(backButtonRect, 0.3f, 10, sectionOutlines);
-    DrawTexture(texture, 1050, 10, WHITE); drawExitBtn();
+    DrawTexture(texture, 1050, 10, WHITE); drawExitBtn(mousePoint);
     DrawText(" << Back", (int)(backButtonRect.x + 6.0f), (int)(backButtonRect.y + 13.0f), 25, RAYWHITE);
     DrawRectangle(40, (int)separationLineY, GetScreenWidth() - 80, 2, eduBlue);
     DrawRectangleRounded({ 40.0f, separationLineY + 30.0f, 1320.0f, mainSectionHeight }, 0.1f, 10, subSectionsBg);
@@ -328,9 +330,9 @@ void drawExercisesPage() {
     DrawText("Answer: x = 2y or x = -3y", 550, (int)(separationLineY + 450), 20, eduOrange);
 }
 
-void drawGradebookPage() {
+void drawGradebookPage(Vector2 mousePoint) {
     DrawText("Gradebook", 20, 70, 70, eduOrange);
-    DrawTexture(texture, 1050, 10, WHITE); drawExitBtn();
+    DrawTexture(texture, 1050, 10, WHITE); drawExitBtn(mousePoint);
     DrawRectangleRounded(backButtonRect, 0.3f, 10, hoverBack ? eduBlue : subSectionsBg);
     DrawRectangleRoundedLines(backButtonRect, 0.3f, 10, sectionOutlines);
     DrawText(" << Back", (int)(backButtonRect.x + 6.0f), (int)(backButtonRect.y + 13.0f), 25, RAYWHITE);
@@ -398,12 +400,11 @@ void drawGradebookPage() {
     }
 }
 
-void drawTestPage() {
-	Vector2 mousePoint = GetMousePosition();
+void drawTestPage(Vector2 mousePoint) {
     DrawText("Maths Test", 20, 70, 70, eduTurquoise);
     DrawRectangleRounded(backButtonRect, 0.3f, 10, backBtnColor);
     DrawRectangleRoundedLines(backButtonRect, 0.3f, 10, sectionOutlines);
-    DrawTexture(texture, 1050, 10, WHITE); drawExitBtn();
+    DrawTexture(texture, 1050, 10, WHITE); drawExitBtn(mousePoint);
     DrawText(" << Back", (int)(backButtonRect.x + 6.0f), (int)(backButtonRect.y + 13.0f), 25, RAYWHITE);
     DrawRectangle(40, (int)separationLineY, GetScreenWidth() - 80, 2, eduBlue);
     DrawRectangleRounded({ 40.0f, separationLineY + 30.0f, 1320.0f, mainSectionHeight }, 0.1f, 10, subSectionsBg);
@@ -451,4 +452,59 @@ void drawTestPage() {
         DrawText(testCurrentQ < TEST_SIZE - 1 ? "Next >" : "See Results",
             (int)nextBtn.x + 25, (int)nextBtn.y + 15, 20, RAYWHITE);
     }
+}
+
+void drawTestResultsPage(Vector2 mousePoint) {
+    DrawText("Maths Test", 20, 70, 70, eduTurquoise);
+    DrawTexture(texture, 1050, 10, WHITE); drawExitBtn(mousePoint);
+    DrawRectangle(40, (int)separationLineY, GetScreenWidth() - 80, 2, eduBlue);
+    DrawRectangleRounded({ 40.0f, separationLineY + 30.0f, 1320.0f, mainSectionHeight }, 0.1f, 10, subSectionsBg);
+
+    // Grade formula: grade = (score / total * 100) * 0.06, clamped [2, 6]
+    float pct = (float)testScore / TEST_SIZE * 100.0f;
+    float numGrade = pct * 0.06f;
+    if (numGrade < 2.0f) numGrade = 2.0f;
+    if (numGrade > 6.0f) numGrade = 6.0f;
+    Color gradeColor = numGrade >= 4.8f ? eduGreen : numGrade >= 3.6f ? eduOrange : eduRed;
+
+    // Results card
+    Rectangle resCard = { 300.0f, separationLineY + 40.0f, 800.0f, 270.0f };
+    DrawRectangleRounded(resCard, 0.1f, 10, mainBackground);
+    DrawRectangleRoundedLines(resCard, 0.1f, 10, eduTurquoise);
+
+    // Title
+    int titleW = MeasureText("Test Complete!", 45);
+    DrawText("Test Complete!", (int)(resCard.x + (resCard.width - titleW) / 2), (int)(resCard.y + 20), 45, RAYWHITE);
+
+    // Score line
+    char scoreBuf[64];
+    snprintf(scoreBuf, sizeof(scoreBuf), "Score:  %d / %d   (%.0f%%)", testScore, TEST_SIZE, pct);
+    int scoreW = MeasureText(scoreBuf, 28);
+    DrawText(scoreBuf, (int)(resCard.x + (resCard.width - scoreW) / 2), (int)(resCard.y + 90), 28, LIGHTGRAY);
+
+    // Grade (large, coloured)
+    char gradeBuf[32];
+    snprintf(gradeBuf, sizeof(gradeBuf), "Grade:  %.2f / 6.00", numGrade);
+    int gradeW = MeasureText(gradeBuf, 50);
+    DrawText(gradeBuf, (int)(resCard.x + (resCard.width - gradeW) / 2), (int)(resCard.y + 140), 50, gradeColor);
+
+    // Motivational message
+    const char* msg = numGrade >= 5.4f ? "Excellent! Outstanding performance!"
+        : numGrade >= 4.2f ? "Good job! Keep practising!"
+        : numGrade >= 3.0f ? "Not bad. Review the materials and try again."
+        : "Keep going - practice makes perfect!";
+    int msgW = MeasureText(msg, 22);
+    DrawText(msg, (int)(resCard.x + (resCard.width - msgW) / 2), (int)(resCard.y + 220), 22, GRAY);
+
+    // Retry / Back buttons
+    Rectangle retryBtn = { 500, separationLineY + 320, 200, 55 };
+    Rectangle backBtn2 = { 720, separationLineY + 320, 200, 55 };
+    bool hoverRetry = CheckCollisionPointRec(mousePoint, retryBtn);
+    bool hoverBack2 = CheckCollisionPointRec(mousePoint, backBtn2);
+    DrawRectangleRounded(retryBtn, 0.3f, 10, hoverRetry ? eduTurquoise : subSectionsBg);
+    DrawRectangleRoundedLines(retryBtn, 0.3f, 10, eduTurquoise);
+    DrawText("Try Again", (int)(retryBtn.x + 35), (int)(retryBtn.y + 15), 24, RAYWHITE);
+    DrawRectangleRounded(backBtn2, 0.3f, 10, hoverBack2 ? eduBlue : subSectionsBg);
+    DrawRectangleRoundedLines(backBtn2, 0.3f, 10, sectionOutlines);
+    DrawText("Back to Maths", (int)(backBtn2.x + 15), (int)(backBtn2.y + 15), 22, RAYWHITE);
 }

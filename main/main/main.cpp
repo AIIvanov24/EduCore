@@ -49,110 +49,50 @@ int main() {
         BeginDrawing();
         ClearBackground(mainBackground);
 
-        // Draw exit button on every page
-        auto drawExitBtn = [&]() {
-
-            DrawRectangleRounded(exitButtonRect, 0.3f, 10, exitBg);
-            DrawRectangleRoundedLines(exitButtonRect, 0.3f, 10, { 220, 50, 50, 255 });
-            DrawText("   Exit", (int)(exitButtonRect.x + 12), (int)(exitButtonRect.y + 13), 24, RAYWHITE);
-            };
-
         switch (currentPage) {
 
         case homePage:
-			drawHomePage();
+			drawHomePage(mousePoint);
             break;
 
         case mathPage:
-			drawMathPage();
+			drawMathPage(mousePoint);
             break;
 
         case test: {
-            drawTestPage();
+            drawTestPage(mousePoint);
         } break;
 
-                 // ══════════════════════════════════════════
         case testResults: {
-            DrawText("Maths Test", 20, 70, 70, eduTurquoise);
-            DrawTexture(texture, 1050, 10, WHITE); drawExitBtn();
-            DrawRectangle(40, (int)separationLineY, GetScreenWidth() - 80, 2, eduBlue);
-            DrawRectangleRounded({ 40.0f, separationLineY + 30.0f, 1320.0f, mainSectionHeight }, 0.1f, 10, subSectionsBg);
-
-            // Grade formula: grade = (score / total * 100) * 0.06, clamped [2, 6]
-            float pct = (float)testScore / TEST_SIZE * 100.0f;
-            float numGrade = pct * 0.06f;
-            if (numGrade < 2.0f) numGrade = 2.0f;
-            if (numGrade > 6.0f) numGrade = 6.0f;
-            Color gradeColor = numGrade >= 4.8f ? eduGreen : numGrade >= 3.6f ? eduOrange : eduRed;
-
-            // Results card
-            Rectangle resCard = { 300.0f, separationLineY + 40.0f, 800.0f, 270.0f };
-            DrawRectangleRounded(resCard, 0.1f, 10, mainBackground);
-            DrawRectangleRoundedLines(resCard, 0.1f, 10, eduTurquoise);
-
-            // Title
-            int titleW = MeasureText("Test Complete!", 45);
-            DrawText("Test Complete!", (int)(resCard.x + (resCard.width - titleW) / 2), (int)(resCard.y + 20), 45, RAYWHITE);
-
-            // Score line
-            char scoreBuf[64];
-            snprintf(scoreBuf, sizeof(scoreBuf), "Score:  %d / %d   (%.0f%%)", testScore, TEST_SIZE, pct);
-            int scoreW = MeasureText(scoreBuf, 28);
-            DrawText(scoreBuf, (int)(resCard.x + (resCard.width - scoreW) / 2), (int)(resCard.y + 90), 28, LIGHTGRAY);
-
-            // Grade (large, coloured)
-            char gradeBuf[32];
-            snprintf(gradeBuf, sizeof(gradeBuf), "Grade:  %.2f / 6.00", numGrade);
-            int gradeW = MeasureText(gradeBuf, 50);
-            DrawText(gradeBuf, (int)(resCard.x + (resCard.width - gradeW) / 2), (int)(resCard.y + 140), 50, gradeColor);
-
-            // Motivational message
-            const char* msg = numGrade >= 5.4f ? "Excellent! Outstanding performance!"
-                : numGrade >= 4.2f ? "Good job! Keep practising!"
-                : numGrade >= 3.0f ? "Not bad. Review the materials and try again."
-                : "Keep going - practice makes perfect!";
-            int msgW = MeasureText(msg, 22);
-            DrawText(msg, (int)(resCard.x + (resCard.width - msgW) / 2), (int)(resCard.y + 220), 22, GRAY);
-
-            // Retry / Back buttons
-            Rectangle retryBtn = { 500, separationLineY + 320, 200, 55 };
-            Rectangle backBtn2 = { 720, separationLineY + 320, 200, 55 };
-            bool hoverRetry = CheckCollisionPointRec(mousePoint, retryBtn);
-            bool hoverBack2 = CheckCollisionPointRec(mousePoint, backBtn2);
-            DrawRectangleRounded(retryBtn, 0.3f, 10, hoverRetry ? eduTurquoise : subSectionsBg);
-            DrawRectangleRoundedLines(retryBtn, 0.3f, 10, eduTurquoise);
-            DrawText("Try Again", (int)(retryBtn.x + 35), (int)(retryBtn.y + 15), 24, RAYWHITE);
-            DrawRectangleRounded(backBtn2, 0.3f, 10, hoverBack2 ? eduBlue : subSectionsBg);
-            DrawRectangleRoundedLines(backBtn2, 0.3f, 10, sectionOutlines);
-            DrawText("Back to Maths", (int)(backBtn2.x + 15), (int)(backBtn2.y + 15), 22, RAYWHITE);
+			drawTestResultsPage(mousePoint);
         } break;
 
         case materials:
-			drawMaterialsPage();
+			drawMaterialsPage(mousePoint);
             break;
 
         case resursesTab1:
-			drawResursesTab1();
+			drawResursesTab1(mousePoint);
             break;
 
         case resursesTab2:
-            drawResursesTab2();
+            drawResursesTab2(mousePoint);
             break;
 
         case resursesTab3:
-            drawResursesTab3();
+            drawResursesTab3(mousePoint);
             break;
 
         case resursesTab4:
-            drawResursesTab4();
+            drawResursesTab4(mousePoint);
             break;
 
         case resursesTab5:
-            drawResursesTab5();
+            drawResursesTab5(mousePoint);
             break;
 
         case exercises:
-            drawExercisesPage();
+            drawExercisesPage(mousePoint);
             break;
 
         case exPractice:
@@ -160,7 +100,7 @@ int main() {
             break;
 
         case gradebookPage: {
-            drawGradebookPage();
+            drawGradebookPage(mousePoint);
         } break;
 
         }
