@@ -75,3 +75,5 @@ void drawMaterialsPage();
 void drawResursesTab1();
 void drawResursesTab2();
 void drawResursesTab3();
+void drawResursesTab4();
+void drawResursesTab5();
