@@ -3,17 +3,14 @@
 int main() {
     InitWindow(1400, 800, "EduCore Education");
     SetTargetFPS(60);
-    srand((unsigned int)time(nullptr)); // Seed за рандом въпросите
-
-    // 2. ИЗЧИСЛЕНИЯ НА КООРДИНАТИ (След като прозорецът е отворен)
-    // Тези стойности отиват в променливите от variables.cpp
+    srand((unsigned int)time(nullptr));
     mainSectionHeight = (float)GetScreenHeight() - separationLineY - spacing * 2.0f;
     mainSectionY = separationLineY + spacing;
 
     int subjectTextWidth = MeasureText("Please choose a subject", 30);
     centerX = 40.0f + (1320.0f / 2.0f) - (subjectTextWidth / 2.0f);
 
-    // Инициализация на правоъгълниците (Rectangles)
+    
     subMathSection = { 74.0f, mainSectionY + 5.0f * spacing, 390.0f, 290.0f };
     subMathSectionHw = { subMathSection.x + 390.0f + spacing * 2.0f, subMathSection.y, subMathSection.width, subMathSection.height };
     subMathSectionTest = { subMathSection.x + 390.0f * 2.0f + spacing * 4.0f, subMathSection.y, subMathSection.width, subMathSection.height };
@@ -23,7 +20,6 @@ int main() {
     labelRect = { mathSection.x - 2.0f, mathSection.y - 1.0f, mathSection.width + 3.0f, labelHeight };
     gradebookBtn = { 80.0f, mainSectionY + 5.0f * spacing + 200.0f + 20.0f, 400.0f, 55.0f };
 
-    // 3. ЗАРЕЖДАНЕ НА ТЕКСТУРИ
     Image logoImg = LoadImage("eduCoreLogo.png");
     if (logoImg.data != nullptr) {
         ImageResize(&logoImg, 200, 200);
@@ -31,8 +27,6 @@ int main() {
         UnloadImage(logoImg);
     }
 
-    // 4. ФУНКЦИЯ ЗА РАЗБЪРКВАНЕ (Shuffle)
-    // Дефинираме я като ламбда за лесен достъп
     auto shuffleTest = [&]() {
         int pool[BANK_SIZE];
         for (int i = 0; i < BANK_SIZE; i++) pool[i] = i;
@@ -71,7 +65,7 @@ int main() {
 
         // ── Exit button — works on every page ────
         if (CheckCollisionPointRec(mousePoint, exitButtonRect) && IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
-            break; // exits the while loop → closes app
+            break; // exits the while loop >> closes app
 
         // ── INPUT ────────────────────────────────
         switch (currentPage) {
@@ -221,10 +215,10 @@ int main() {
             break;
         }
 
-        // ── HOVER / COLOUR HELPERS ────────────────
+        // ── HOVER / COLOUR HELPERS ───────────────
+        bool hoverGradebookBtn = CheckCollisionPointRec(mousePoint, gradebookBtn);
         bool hoverBack = CheckCollisionPointRec(mousePoint, backButtonRect);
         bool hoverExit = CheckCollisionPointRec(mousePoint, exitButtonRect);
-        bool hoverGradebookBtn = CheckCollisionPointRec(mousePoint, gradebookBtn);
         bool hoverResursesP1 = CheckCollisionPointRec(mousePoint, resusrsesP1);
         bool hoverResursesP2 = CheckCollisionPointRec(mousePoint, resusrsesP2);
         bool hoverResursesP3 = CheckCollisionPointRec(mousePoint, resusrsesP3);
@@ -247,6 +241,7 @@ int main() {
         Color resursesColorP3 = hoverResursesP3 ? eduBlue : subSectionsBg;
         Color resursesColorP4 = hoverResursesP4 ? eduBlue : subSectionsBg;
         Color resursesColorP5 = hoverResursesP5 ? eduBlue : subSectionsBg;
+        Color exitBg = hoverExit ? Color{ 180, 30, 30, 255 } : Color{ 100, 20, 20, 255 };
 
         // ── DRAW ─────────────────────────────────
         BeginDrawing();
@@ -254,7 +249,7 @@ int main() {
 
         // Draw exit button on every page
         auto drawExitBtn = [&]() {
-            Color exitBg = hoverExit ? Color{ 180, 30, 30, 255 } : Color{ 100, 20, 20, 255 };
+            
             DrawRectangleRounded(exitButtonRect, 0.3f, 10, exitBg);
             DrawRectangleRoundedLines(exitButtonRect, 0.3f, 10, { 220, 50, 50, 255 });
             DrawText("   Exit", (int)(exitButtonRect.x + 12), (int)(exitButtonRect.y + 13), 24, RAYWHITE);

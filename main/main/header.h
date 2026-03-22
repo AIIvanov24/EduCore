@@ -5,7 +5,7 @@
 #include <ctime>
 #include <cstdio>
 
-// --- Енумерации и Структури ---
+// State enumeration for the different pages of the application
 enum appState {
     homePage, mathPage, exercises, test, testResults, materials,
     resursesTab1, resursesTab2, resursesTab3, resursesTab4, resursesTab5, exPractice,
@@ -26,13 +26,12 @@ struct Question {
     int correct;
 };
 
-// --- Глобални константи ---
+// Global constants
 const int MAX_RESULTS = 20;
 const int BANK_SIZE = 30;
 const int TEST_SIZE = 20;
 
-// --- Декларации на променливи (extern) ---
-// Тези променливи се дефинират в variables.cpp
+// Declarations of global variables (defined in variables.cpp)
 extern appState currentPage;
 extern Color eduBlue, eduOrange, mainBackground, subSectionsBg, sectionOutlines, eduTurquoise, eduGreen, eduRed;
 extern float spacing, separationLineY, mainSectionHeight, mainSectionY, centerX, labelHeight;
@@ -51,5 +50,5 @@ extern bool testAnswered;
 extern int answerOrder[TEST_SIZE][3], shuffledCorrect[TEST_SIZE];
 extern Texture2D texture;
 
-// --- Декларации на функции ---
+// Functions
 void getDateStr(char* buf);
