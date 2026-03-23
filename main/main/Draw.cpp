@@ -6,7 +6,7 @@ void drawExitBtn(Vector2 mousePoint) {
 
     DrawRectangleRounded(exitButtonRect, 0.3f, 10, exitBg);
     DrawRectangleRoundedLines(exitButtonRect, 0.3f, 10, { 220, 50, 50, 255 });
-    DrawText("    Exit", (int)(exitButtonRect.x + 12), (int)(exitButtonRect.y + 13), 24, RAYWHITE);
+    DrawText("   Exit", (int)(exitButtonRect.x + 12), (int)(exitButtonRect.y + 13), 24, RAYWHITE);
 }
 
 void drawExPractice(Vector2 mousePoint) {
@@ -71,7 +71,7 @@ void drawHomePage(Vector2 mousePoint) {
     DrawRectangleRounded(gradebookBtn, 0.3f, 10, hoverGradebookBtn ? eduOrange : subSectionsBg);
     DrawRectangleRoundedLines(gradebookBtn, 0.3f, 10, eduOrange);
     DrawText(" Gradebook  [ View Results ]", (int)(gradebookBtn.x + 20), (int)(gradebookBtn.y + 15), 24, RAYWHITE);
-    DrawText("Discover more subjects with EduCorePlus", 90, (int)(mainSectionY + 10.0f * spacing + 200.0f + 90.0f), 25, sectionOutlines);
+
 }
 
 void drawMathPage(Vector2 mousePoint) {

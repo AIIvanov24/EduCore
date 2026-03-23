@@ -29,7 +29,7 @@ int main() {
 
 
 
-    shuffleTest(); // initialise on startup
+    shuffleTest();
 
     //  MAIN LOOP
     while (!WindowShouldClose()) {
