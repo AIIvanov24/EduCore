@@ -1,5 +1,6 @@
-# EduCore — Електронно Училище
-<img src="main/main/eduCoreLogo.png" width="150"/>
+<p align="center">
+  <img src="main/main/eduCoreLogo.png" width="200"/>
+</p>
 
 **EduCore** is a desktop educational application built with C++ and raylib. It provides students with structured learning materials, practice exercises, and timed tests — with results tracked in a built-in gradebook.
 
