@@ -104,7 +104,7 @@ Formula: `grade = percentage × 0.06` (min: 2.00, max: 6.00)
 | Resource | Link |
 |----------|------|
 | 📊 Presentation | [View on SharePoint](https://codingburgas-my.sharepoint.com/:p:/g/personal/aiivanov24_codingburgas_bg/IQAPOQt-81llS7dA6v7Aqa4PAVzjnXyUhpTw9a-0DAZdcaY?e=f17rI5) |
-| 📄 Documentation | [View on SharePoint](https://codingburgas-my.sharepoint.com/:p:/g/personal/aiivanov24_codingburgas_bg/IQAPOQt-81llS7dA6v7Aqa4PAVzjnXyUhpTw9a-0DAZdcaY?e=f17rI5)|
+| 📄 Documentation | [View on SharePoint](https://codingburgas-my.sharepoint.com/:w:/g/personal/aiivanov24_codingburgas_bg/IQAb6-eZFzAASJ11SoKmJoSKATYY5P_aErsVB2LMQPCSmDc?e=G4IaH7)|
 
 ---
 
